@@ -1,0 +1,41 @@
+<div class="main" style="overflow:hidden; height:100vh">
+	<div class="header">
+		<div class="logo">
+			<a href="/#home"><img src="images/logo.png"></a>
+		</div>
+		<div class="menu">
+			<ul>
+				<li class="menuItem"><a href="/#book" style="color:#1e75ba">Book now</a></li>
+				<li class="menuItem"><a href="">Travel Packages</a></li>
+				<li class="menuItem"><a href="">Pricing</a></li>
+				<li class="menuItem"><a href="/#contact">Inquire Now</a></li>
+			</ul>
+		</div>
+	</div>
+	<div class="signinMain">
+		<div class="row">
+			<div class="col-md-6 signinDetails">
+				Now reach Chennai Airport from anywhere in vellore at just ₹1999.
+			</div>
+			<div class="col-md-6">
+				<div class="signinText">Sign into your account</div>
+				<div class="form" align="center">
+			    	<form ng-submit="login()">
+			        <label>Username</label>
+			        <input type="text" ng-model="user.username" placeholder="username" required>
+			        <label>Password</label>
+			        <input type="password" ng-model="user.password" placeholder="password" required>
+			        <button type="submit" value="#/login"class="signinButton">Sign in</button>
+			        </form>
+			        or
+			        <a href="/auth/facebook"><button class="facebook">Sign in with Facebook</button></a>
+			        <a href="/#forgot"><div class="forgotPassword">Forgot password</div></a>
+			        <div class="signupText">New to Sasi Travels? <a href="/#signup"><span class="createAcct">Create an account</span></a></div>
+			        <div class="warning text-warning" style="width:100%">{{error_message}} <img src="../images/cross.png"></div>
+			    	
+		    	</div>
+			</div>
+		</div>
+	    
+	</div>
+</div>

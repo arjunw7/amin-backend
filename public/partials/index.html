@@ -1,0 +1,40 @@
+<!-- 
+Author: Arjun Wadhwa
+Author URL: www.facebook.com/cornifus
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Sasi Travels</title>
+<meta name="author" content="Arjun Wadhwa"/>
+<meta name="description" content=""/>
+<meta name="viewport" content=" width=device-width, initial-scale=1.0"/>
+<link rel="stylesheet" type="text/css" href="../stylesheets/bootstrap.css">
+<link rel="stylesheet" type="text/css" href="../stylesheets/style.css">
+<link rel="stylesheet" type="text/css" href="bower_components/raleway/raleway.css">
+<script type="text/javascript" src="bower_components/jquery/dist/jquery.js"></script>
+<script type="text/javascript" src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
+<script type="text/javascript" src="bower_components/angular/angular.js"></script>
+<script type="text/javascript" src="bower_components/angular-route/angular-route.js"></script>
+<script src="../javascripts/default.js"></script>
+<script src="../javascripts/controller.js"></script>
+<script type="text/javascript">
+    if (window.location.hash && window.location.hash == '#_=_') {
+        window.location.hash = '';
+    }
+</script>
+</head>
+<body ng-app="sasitravels">
+	<div id="preloader">
+  		<div id="status">
+  			<img src="images/loader.gif">
+		</div>
+	</div>
+	<div class="topbar">
+			16/7 Customer Care <b>+91 99431-30589 / +91 88071-20589</b>
+	</div>
+	<div ng-view>
+	</div>
+</body>
+</html>

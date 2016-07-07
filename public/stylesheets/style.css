@@ -1,0 +1,1611 @@
+body{
+	background-color:rgba(253,253,253,1);
+	overflow-x:hidden;
+}
+.row, .col-md-3{
+	margin:0;
+	padding:0;
+}
+.topbar{
+	background-color: #e4e4e4;
+	padding: 2px 5px;
+	text-align: right;
+	font-size:11px;
+	position:fixed;
+	width:100%;
+	height:20px;
+	z-index:1000;
+}
+/*------airport drop button style begin------*/
+.airportDrop{
+	position:fixed;
+	background-color:#1e75ba;
+	color:white;
+	z-index:20;
+	right:0px;
+	bottom:10px;
+	width:35px;
+	height:130px;
+	padding:5px;
+	transition:.3s
+}
+.airportDrop:hover{
+	cursor:pointer;
+	background-color:#388dd1;
+}
+.airportDrop img{
+	width:100%;
+}
+.dropText{
+	position:absolute;
+	top:55px;
+	right:-35px;
+	width:300%;
+	transform: rotate(-90deg);
+	font-size:16px
+}
+.dropDetails{
+	position: fixed;
+	width: 250px;
+	height:130px;
+	right: -300px;
+	bottom: 10px;
+	z-index: 1000;
+	background-color:white;
+	padding:15px;
+	transition:.5s;
+	font-size:16px
+}
+.dropDetails button{
+	position:relative;
+	border:1px solid #1e75ba;
+	padding: 10px 20px;
+	background-color:#1e75ba;
+	text-align: center;
+	color: white;
+	transition:.5s;
+	font-size:14px;
+	margin-top:15px;
+}
+.dropDetails button:hover{
+	background-color:white;
+	color:#1e75ba;
+}
+.cancel{
+	float:right;
+	margin:40px 5px 0px 0px;
+	font-size:13px;
+	cursor:pointer;
+}
+/*------airport drop button style end------*/
+
+
+/*------scroolbar style Begin------*/
+::-webkit-scrollbar {
+    width: 6px;
+}
+ 
+::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3); 
+    border-radius: 10px;
+    background-color: white;
+}
+ 
+::-webkit-scrollbar-thumb {
+    background-color:#1e75ba;
+}
+/*------scroolbar style End------*/
+
+
+/* Preloader style Begin*/
+#preloader  {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #fefefe;
+    z-index: 2000;
+    height: 100%;
+ }
+#status  {
+	text-align:center;
+    width: 100px;
+    height: 100px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    margin: -50px 0 0 -50px;
+ }
+#status img{
+	width:50%;
+}
+
+/* Preloader style End*/
+
+
+/*------slider style begin------*/
+.slider{
+	padding-top:100px;
+	height:60vh;
+}
+.sliderItem1, .sliderItem2, .sliderItem3{
+	position:absolute;
+	width:100%;
+}
+.sliderItem2, .sliderItem3, .sliderItem4{
+	opacity:0;
+}
+.sliderItem1 img, .sliderItem2 img, .sliderItem3 img{
+	width:100%;
+}
+/*------slider style end------*/
+
+
+/*------menu bar style begin------*/
+.header{
+	height: 80px;
+	box-shadow: 0px 3px 10px grey;
+	z-index: 100;
+	padding:8px 10px;
+	background-color: white;
+	position:fixed;
+	width:100%;
+	margin-top:20px;
+}
+.logo{
+	width:250px;
+	display: inline-block;
+}
+.logo img{
+	width:100%
+}
+.menu{
+	position:relative;
+	display:inline-block;
+	float:right;
+	padding:20px 0px;
+}
+
+li{
+	display:inline-block;
+}
+.menuItem{
+	padding: 0px 15px;
+	font-family:arial;
+	font-weight:bold;
+	color:#767676;
+	font-size:15px
+}
+.menuItem a, .menuItem a:hover{
+	color:#767676;
+	font-size:15px;
+	text-decoration:none;
+}
+.signinForm input{
+	width:120px;
+	padding: 2px 5px;
+	height:32px;
+	margin:0px 3px;
+	border: 1px solid #b9b9b9;
+	border-radius:2px;
+	outline:none;
+}
+
+.menu button{
+	padding: 2px 5px;
+	height:32px;
+	color:white;
+	width:70px;
+	border:none;
+	transition:.5s;
+	border-radius:2px;
+	outline:none;
+}
+
+#signin{
+	background-color:#00bfc1;
+	border:1px solid #00bfc1;
+}
+#signup{
+	background-color:#1e75ba;
+	margin-left:15px;
+	border:1px solid #1e75ba;
+}
+#signin:hover{
+	background-color:white;
+	color:#00bfc1;
+}
+#signup:hover{
+	background-color:white;
+	color:#1e75ba
+}
+ul{
+	padding:10px 5px; 
+}
+.dropdown{
+	position:absolute;
+	background-color:white;
+	z-index:1000;
+	width:150px;
+	box-shadow:0px 5px 10px grey;
+	margin-top:21px;
+	display: none;
+}
+.dropdown li{
+	width:100%;
+	padding:10px;
+}	
+/*------menu bar style end------*/
+
+
+/*------about style begin------*/
+.about{
+	padding:30px 0px;
+	background-color:#fbf3f3;
+}
+.iconRow{
+	padding:0% 8%;
+}
+.aboutHeader{
+	color:#1e75ba;
+	text-align:center;
+	font-size:28px;
+	padding-bottom:20px;
+	font-weight: 300;
+	font-family: raleway;
+}
+.aboutIcon{
+	text-align:center;
+	padding:20px
+}
+.aboutIcon img{
+	width:100px
+}
+.iconHead{
+	font-size:16px;
+	color:#1e75ba;
+	font-family: raleway;
+	font-weight:500
+}
+
+.iconDescription{
+	font-family:raleway;
+	font-weight:500;
+}
+/*------about style end------*/
+
+
+
+
+/*------quick booking form style begin------*/
+.quickBooking{
+	padding:30px;
+	text-align:center;
+}
+.quickBooking input, .quickBooking select{
+	padding:7px;
+	height:45px;
+	width:250px;
+	margin:0px 3px;
+	border:1px solid #b9bbbb;
+	border-radius:3px;
+	font-size:16px
+}
+.quickBooking button{
+	padding:7px;
+	height:45px;
+	background-color:#00bfc1;
+	border:1px solid #00bfc1;
+	color:white;
+	border-radius:3px;
+	border:1px solid #00bfc1;
+	transition:.5s;
+}
+.quickBooking button:hover{
+	background-color:white;
+	color:#00bfc1;
+}
+/*------quick booking form style end------*/
+
+/*------travel packages style begin------*/
+.travelPackages{
+	padding: 60px 0px;
+	font-family:raleway;
+	background-color: rgba(245,245,245,1);
+}
+.packagesHead{
+	text-align:center;
+	font-size:30px;
+	padding:10px 0px 30px 0px;
+	color: #1e75ba;
+}
+.mysore, .ooty, .pondi, .coorg, .goa, .munnar, .kanyakumari, .kodaikanal{
+	height:45vh;
+	background-position:center;
+	background-size:cover;
+	font-family:arial;
+}
+.coorgInside, .mysoreInside, .pondiInside, .ootyInside{
+	width:100%;
+	height: 45vh;
+	position: absolute;
+}
+.goa, .munnar, .kanyakumari, .kodaikanal{
+	position: absolute;
+	width:100%;
+	opacity:0;
+}
+.goa{
+	background-image: url('../images/packages/goa.jpg');
+}
+.munnar{
+	background-image: url('../images/packages/munnar.jpg');
+}
+.kodaikanal{
+	background-image: url('../images/packages/kodaikanal.jpg');
+}
+.mysore{
+	background-image: url('../images/packages/mysore.jpg');
+}
+.kanyakumari{
+	background-image: url('../images/packages/kanyakumari.jpg');
+}
+.mysoreName{
+	font-size:84px;
+	color:white;
+	font-weight:bold;
+	line-height:84px;
+	opacity:.8;
+}
+.blueBox{
+	background-color: #115c98;
+	height:45vh;
+	font-size:20px;
+	padding:70px 20px;
+	text-align:center;
+	color:white;
+	font-weight:300
+}
+.ooty{
+	background-image: url('../images/packages/ooty.jpg');
+}
+.ootyName{
+	position:absolute;
+	font-size:84px;
+	bottom:0;
+	left:10px;
+	color:rgba(255,255,255,1);
+	font-weight:bold;
+	line-height:84px;
+	opacity:.8
+}
+.pondi{
+	background-image: url('../images/packages/pondi.jpg');
+}
+.pondiName{
+	position:absolute;
+	font-size:54px;
+	top:0;
+	left:10px;
+	color:rgba(0,0,0,.7);
+	font-weight:bold;
+	line-height:64px;
+	opacity:.8
+}
+.coorg{
+	background-image: url('../images/packages/coorg.jpg');
+}
+.coorgName{
+	position:absolute;
+	font-size:62px;
+	top:0;
+	left:10px;
+	color:rgba(0,0,0,.7);
+	font-weight:bold;
+	line-height:84px;
+	opacity:.8
+}
+
+
+/*------emergency style begin------*/
+.emergency{
+	background-color:#e2e0e0;
+	padding:20px 20px 40px 20px;
+}
+.emergencyText{
+	font-size:30px;
+	padding-top:30px;
+}
+.emergencyButton button{
+	width:200px;
+	height:60px;
+	margin-top:5px;
+	border:1px solid #1e75ba;
+	background-color:#1e75ba;
+	color:white;
+	border-radius:3px;
+	transition:0.5s;
+	font-size:22px;
+	margin-top:20px
+}
+.emergencyButton button:hover{
+	background-color:white;
+	color:#1e75ba;
+}
+.family img{
+	width:100%
+}
+/*------eergency style end-------*/
+
+
+/*------contact style begin------*/
+.contact{
+	padding:0% 7%;
+	padding-top:40px;
+	padding-bottom:30px;
+}
+.contactHead{
+	font-size:28px;
+	text-align:center;
+	color:#1e75ba;
+}
+.contactSubtext{
+	font-size:18px;
+	text-align:center;
+	padding-bottom:10px;
+	color:#1e75ba;
+}
+.contact form{
+	padding-top:20px;
+	font-size:15px
+}
+.contact input, .contact textarea{
+	width:95%;
+	padding:8px;
+	height:40px;
+	border: 1px solid #cdcdcd;
+	border-radius:3px;
+	outline:none;
+}
+.contact input{
+	margin:0% 5% 10px 0%
+}
+.contact textarea{
+	width:100%;
+	height:90px;
+	max-width:100%;
+}
+.contact button{
+	width:100%;
+	height:40px;
+	margin-top:5px;
+	border:1px solid #1e75ba;
+	background-color:#1e75ba;
+	color:white;
+	transition:0.5s
+}
+.contact button:hover{
+	background-color:white;
+	color:#1e75ba;
+}
+#map{
+    width: 100%;
+    height: 200px;
+}
+
+
+/*------footer style begin------*/
+.footer{
+	background-color: #424242;
+	padding: 10px;
+}
+.left{
+	text-align: left;
+}
+.right{
+	text-align: right;
+}
+.left, .right, .right a{
+	font-size: 12px;
+	color: white;
+	text-decoration: none;
+}
+/*------footer style end------*/
+
+
+/*------login and signup page style begin------*/
+.signin, .signup{
+  background-color: #526290;
+}
+.signupMain{
+	background-image:url("../images/signupBack.jpg");
+	background-repeat:no-repeat;
+	background-size:cover
+}
+.signinMain{
+	background-image:url("../images/signupBack.jpg");
+	background-repeat:no-repeat;
+	background-size:cover
+}
+.signinMain, .signupMain{
+  padding: 20px 80px;
+  color:#1e75ba;
+  height:120vh;
+  margin-top:110px;
+}
+.signupDetails, .signinDetails{
+	color:white;
+	font-size:40px;
+	padding-top:100px;
+	font-weight:bold
+}
+.signinText, .signuptext{
+  font-size:28px;
+  padding:10px;
+  margin-left:120px;
+  color:white;
+  padding-top:50px
+}
+.form{
+  border-radius:10px;
+  width:500px;
+  padding:20px 20px 40px 20px;
+  margin-left:120px;
+  background-color:rgba(0,0,0,.3);
+  text-align:center;
+  color:white;
+}
+.form label{
+  font-size:16px;
+  font-weight:300;
+  text-align:left;
+  width:100%;
+  color:white;
+}
+.form input, .form button{
+  width:100%;
+}
+.form input{
+  padding:8px;
+  margin-bottom:15px;
+  color:black;
+  border:1px solid #cdcdcd;
+  outline:none;
+  border-radius:3px;
+}
+input:focus{
+  outline:none;
+}
+.signinButton, .facebook{
+  padding:11px;
+  font-size:16px;
+  font-weight:500;
+  outline:none;
+  border-radius:3px;
+  color:white;
+  transition:.5s;
+}
+.signinButton{
+  background-color: #1e75ba;
+  margin:10px 0px;
+  border: 1px solid #1e75ba;
+}
+.facebook{
+  background-color: #1e87be;
+  margin-top:5px;
+  border: 1px solid #1e87be;
+}
+.signinButton:hover{
+  background-color: white;
+  color:#1e75ba;
+}
+.facebook:hover{
+  background-color: white;
+  color:#1e87be;
+}
+
+.forgotPassword{
+  float:left;
+  color:white;
+  padding-top:10px;
+}
+.text-warning{
+	color:rgba(255,255,255,.8);
+	background-color:rgba(30,117,186,.5);
+	border: 1px solid #3593dd;
+	border-radius:5px;
+	width:100%;
+	text-align:left;
+	margin-top:40px;
+	padding:10px;
+	display:none;
+}
+.text-warning img{
+	width:12px;
+	float:right;
+	padding-top:5px
+}
+.text-warning img:hover{
+	width:12px;
+	cursor:pointer
+}
+.signupText{
+  float:right;
+  padding-top:10px;
+  color:white;
+}
+.createAcct{
+  color:white;
+  text-decoration:underline;
+}
+.forgotText{
+	color:white;
+	font-size:28px;
+	padding:20px
+}
+/*------login and signup page style begin------*/
+
+/*Booking page style begin*/
+.bookingForm{
+	padding:120px 0px 20px 10%;
+}
+.bookingHead{
+	font-size:32px;
+	font-family:raleway;
+	width:100%;
+	border-width:0px 0px 1px 0px;
+	border-style:solid;
+	margin-bottom:20px;
+}
+.bookingForm label{
+	margin-left:5px
+}
+.bookingForm input, .bookingForm select{
+	padding:7px;
+	width:95%;
+	height:45px;
+	margin:0px 3px;
+	border:1px solid #b9bbbb;
+	border-radius:3px;
+	font-size:16px;
+	margin-bottom:20px;
+	outline:none;
+}
+.bookingForm input[type="radio"]{
+	height:20px;
+	width:20px;
+	margin:0px 5px 20px 15px;
+	border:1px solid #b9bbbb;
+	border-radius:3px;
+	font-size:16px;
+	outline:none
+}
+input[type=date]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    display: none;
+}
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    margin: 0; 
+}
+.bookingForm button{
+	padding:7px;
+	height:45px;
+	background-color:#00bfc1;
+	border:1px solid #00bfc1;
+	color:white;
+	border-radius:3px;
+	border:1px solid #00bfc1;
+	transition:.5s;
+}
+.bookingForm button:hover{
+	background-color:white;
+	color:#00bfc1;
+}
+
+.confirmMobile{
+	padding:7px 3px 15px 3px;
+}
+.confirmMobile button{
+	padding:10px 20px;
+	font-size:18px;
+}
+.otp{
+	display: none;
+	margin:10px 0px;
+}
+.otp button{
+	margin-top:25px;
+}
+.im-checkout-btn{
+	background-color:#1e75ba !important;
+	font-size:18px;
+	border: 1px solid #1e75ba !important;
+}
+.im-checkout-btn:hover{
+	background-color:white !important;
+	font-size:18px;
+	color:#1e75ba !important;
+	border: 1px solid #1e75ba !important;
+}
+.btn--flat{
+	border-radius:5px !important
+}
+.payment{
+	display:none;
+}
+.incorrectOTP{
+	display:none;
+}
+.payment a{
+	text-decoration:none !important;
+}
+/*booking page style end*/
+
+.sidebanner1{
+padding:0px 0px 0px 15%;
+position:absolute;
+}
+.sidebanner2{
+padding:0px 0px 0px 15%;
+position:absolute;
+opacity:0;
+}
+.sidebanner1 img, .sidebanner2 img{
+	width:80%;
+}body{
+	background-color:rgba(253,253,253,1);
+	overflow-x:hidden;
+}
+.row, .col-md-3, .col-md-7, .col-md-2{
+	margin:0;
+	padding:0;
+}
+.topbar{
+	background-color: #e4e4e4;
+	padding: 2px 5px;
+	text-align: right;
+	font-size:11px;
+	position:fixed;
+	width:100%;
+	height:20px;
+	z-index:1000;
+}
+/*------airport drop button style begin------*/
+.airportDrop{
+	position:fixed;
+	background-color:#1e75ba;
+	color:white;
+	z-index:20;
+	right:0px;
+	bottom:10px;
+	width:35px;
+	height:130px;
+	padding:5px;
+	transition:.3s
+}
+.airportDrop:hover{
+	cursor:pointer;
+	background-color:#388dd1;
+}
+.airportDrop img{
+	width:100%;
+}
+.dropText{
+	position:absolute;
+	top:55px;
+	right:-35px;
+	width:300%;
+	transform: rotate(-90deg);
+	font-size:16px
+}
+.dropDetails{
+	position: fixed;
+	width: 250px;
+	height:130px;
+	right: -300px;
+	bottom: 10px;
+	z-index: 1000;
+	background-color:white;
+	padding:15px;
+	transition:.5s;
+	font-size:16px
+}
+.dropDetails button{
+	position:relative;
+	border:1px solid #1e75ba;
+	padding: 10px 20px;
+	background-color:#1e75ba;
+	text-align: center;
+	color: white;
+	transition:.5s;
+	font-size:14px;
+	margin-top:15px;
+}
+.dropDetails button:hover{
+	background-color:white;
+	color:#1e75ba;
+}
+.cancel{
+	float:right;
+	margin:40px 5px 0px 0px;
+	font-size:13px;
+	cursor:pointer;
+}
+/*------airport drop button style end------*/
+
+
+/*------scroolbar style Begin------*/
+::-webkit-scrollbar {
+    width: 6px;
+}
+ 
+::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3); 
+    border-radius: 10px;
+    background-color: white;
+}
+ 
+::-webkit-scrollbar-thumb {
+    background-color:#1e75ba;
+}
+/*------scroolbar style End------*/
+
+
+/* Preloader style Begin*/
+#preloader  {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #fefefe;
+    z-index: 2000;
+    height: 100%;
+ }
+#status  {
+	text-align:center;
+    width: 100px;
+    height: 100px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    margin: -50px 0 0 -50px;
+ }
+#status img{
+	width:50%;
+}
+
+/* Preloader style End*/
+
+
+/*------slider style begin------*/
+.slider{
+	padding-top:100px;
+	height:60vh;
+}
+.sliderItem1, .sliderItem2, .sliderItem3{
+	position:absolute;
+	width:100%;
+}
+.sliderItem2, .sliderItem3, .sliderItem4{
+	opacity:0;
+}
+.sliderItem1 img, .sliderItem2 img, .sliderItem3 img{
+	width:100%;
+}
+/*------slider style end------*/
+
+
+/*------menu bar style begin------*/
+.header{
+	height: 80px;
+	box-shadow: 0px 3px 10px grey;
+	z-index: 100;
+	padding:8px 10px;
+	background-color: white;
+	position:fixed;
+	width:100%;
+	margin-top:20px;
+}
+.logo{
+	width:250px;
+	display: inline-block;
+}
+.logo img{
+	width:100%
+}
+.menu{
+	position:relative;
+	display:inline-block;
+	float:right;
+	padding:20px 0px;
+}
+
+li{
+	display:inline-block;
+}
+.menuItem{
+	padding: 0px 15px;
+	font-family:arial;
+	font-weight:bold;
+	color:#767676;
+	font-size:15px
+}
+.menuItem a, .menuItem a:hover{
+	color:#767676;
+	font-size:15px;
+	text-decoration:none;
+}
+.signinForm input{
+	width:120px;
+	padding: 2px 5px;
+	height:32px;
+	margin:0px 3px;
+	border: 1px solid #b9b9b9;
+	border-radius:2px;
+	outline:none;
+}
+
+.menu button{
+	padding: 2px 5px;
+	height:32px;
+	color:white;
+	width:70px;
+	border:none;
+	transition:.5s;
+	border-radius:2px;
+	outline:none;
+}
+
+#signin{
+	background-color:#00bfc1;
+	border:1px solid #00bfc1;
+}
+#signup{
+	background-color:#1e75ba;
+	margin-left:15px;
+	border:1px solid #1e75ba;
+}
+#signin:hover{
+	background-color:white;
+	color:#00bfc1;
+}
+#signup:hover{
+	background-color:white;
+	color:#1e75ba
+}
+ul{
+	padding:10px 5px; 
+}
+.dropdown{
+	position:absolute;
+	background-color:white;
+	z-index:1000;
+	width:150px;
+	box-shadow:0px 5px 10px grey;
+	margin-top:21px;
+	display: none;
+}
+.dropdown li{
+	width:100%;
+	padding:10px;
+}	
+/*------menu bar style end------*/
+
+
+/*------about style begin------*/
+.about{
+	padding:30px 0px;
+	background-color:#fbf3f3;
+}
+.iconRow{
+	padding:0% 8%;
+}
+.aboutHeader{
+	color:#1e75ba;
+	text-align:center;
+	font-size:28px;
+	padding-bottom:20px;
+	font-weight: 300;
+	font-family: raleway;
+}
+.aboutIcon{
+	text-align:center;
+	padding:20px
+}
+.aboutIcon img{
+	width:100px
+}
+.iconHead{
+	font-size:16px;
+	color:#1e75ba;
+	font-family: raleway;
+	font-weight:500
+}
+
+.iconDescription{
+	font-family:raleway;
+	font-weight:500;
+}
+/*------about style end------*/
+
+
+
+
+/*------quick booking form style begin------*/
+.quickBooking{
+	padding:30px;
+	text-align:center;
+}
+.quickBooking input, .quickBooking select{
+	padding:7px;
+	height:45px;
+	width:250px;
+	margin:0px 3px;
+	border:1px solid #b9bbbb;
+	border-radius:3px;
+	font-size:16px
+}
+.quickBooking button{
+	padding:7px;
+	height:45px;
+	background-color:#00bfc1;
+	border:1px solid #00bfc1;
+	color:white;
+	border-radius:3px;
+	border:1px solid #00bfc1;
+	transition:.5s;
+}
+.quickBooking button:hover{
+	background-color:white;
+	color:#00bfc1;
+}
+/*------quick booking form style end------*/
+
+/*------travel packages style begin------*/
+.travelPackages{
+	padding: 60px 0px;
+	font-family:raleway;
+	background-color: rgba(245,245,245,1);
+}
+.packagesHead{
+	text-align:center;
+	font-size:30px;
+	padding:10px 0px 30px 0px;
+	color: #1e75ba;
+}
+.mysore, .ooty, .pondi, .coorg, .goa, .munnar, .kanyakumari, .kodaikanal{
+	height:45vh;
+	background-position:center;
+	background-size:cover;
+	font-family:arial;
+}
+.coorgInside, .mysoreInside, .pondiInside, .ootyInside{
+	width:100%;
+	height: 45vh;
+	position: absolute;
+}
+.goa, .munnar, .kanyakumari, .kodaikanal{
+	position: absolute;
+	width:100%;
+	opacity:0;
+}
+.goa{
+	background-image: url('../images/packages/goa.jpg');
+}
+.munnar{
+	background-image: url('../images/packages/munnar.jpg');
+}
+.kodaikanal{
+	background-image: url('../images/packages/kodaikanal.jpg');
+}
+.mysore{
+	background-image: url('../images/packages/mysore.jpg');
+}
+.kanyakumari{
+	background-image: url('../images/packages/kanyakumari.jpg');
+}
+.mysoreName{
+	font-size:84px;
+	color:white;
+	font-weight:bold;
+	line-height:84px;
+	opacity:.8;
+}
+.blueBox{
+	background-color: #115c98;
+	height:45vh;
+	font-size:20px;
+	padding:70px 20px;
+	text-align:center;
+	color:white;
+	font-weight:300
+}
+.ooty{
+	background-image: url('../images/packages/ooty.jpg');
+}
+.ootyName{
+	position:absolute;
+	font-size:84px;
+	bottom:0;
+	left:10px;
+	color:rgba(255,255,255,1);
+	font-weight:bold;
+	line-height:84px;
+	opacity:.8
+}
+.pondi{
+	background-image: url('../images/packages/pondi.jpg');
+}
+.pondiName{
+	position:absolute;
+	font-size:54px;
+	top:0;
+	left:10px;
+	color:rgba(0,0,0,.7);
+	font-weight:bold;
+	line-height:64px;
+	opacity:.8
+}
+.coorg{
+	background-image: url('../images/packages/coorg.jpg');
+}
+.coorgName{
+	position:absolute;
+	font-size:62px;
+	top:0;
+	left:10px;
+	color:rgba(0,0,0,.7);
+	font-weight:bold;
+	line-height:84px;
+	opacity:.8
+}
+
+
+/*------emergency style begin------*/
+.emergency{
+	background-color:#e2e0e0;
+	padding:20px 20px 40px 20px;
+}
+.emergencyText{
+	font-size:30px;
+	padding-top:30px;
+}
+.emergencyButton button{
+	width:200px;
+	height:60px;
+	margin-top:5px;
+	border:1px solid #1e75ba;
+	background-color:#1e75ba;
+	color:white;
+	border-radius:3px;
+	transition:0.5s;
+	font-size:22px;
+	margin-top:20px
+}
+.emergencyButton button:hover{
+	background-color:white;
+	color:#1e75ba;
+}
+.family img{
+	width:100%
+}
+/*------eergency style end-------*/
+
+
+/*------contact style begin------*/
+.contactMain{
+	padding-top:120px;
+	padding-bottom:50px;
+}
+.contact{
+	padding:0% 7%;
+	padding-top:40px;
+	padding-bottom:30px;
+}
+.contactName{
+	font-size:28px;
+	font-family:Raleway;
+	text-align:center;
+	padding-top:25px
+}
+.contactDetails{
+	font-size:18px;
+	font-family:Raleway;
+	text-align:center;
+}
+.contactHead{
+	font-size:28px;
+	text-align:center;
+	color:#1e75ba;
+}
+.contactSubtext{
+	font-size:18px;
+	text-align:center;
+	padding-bottom:10px;
+	color:#1e75ba;
+}
+.contact form{
+	padding-top:20px;
+	font-size:15px
+}
+.contact input, .contact textarea{
+	width:95%;
+	padding:8px;
+	height:40px;
+	border: 1px solid #cdcdcd;
+	border-radius:3px;
+	outline:none;
+}
+.contact input{
+	margin:0% 5% 10px 0%
+}
+.contact textarea{
+	width:100%;
+	height:90px;
+	max-width:100%;
+}
+.contact button{
+	width:100%;
+	height:40px;
+	margin-top:5px;
+	border:1px solid #1e75ba;
+	background-color:#1e75ba;
+	color:white;
+	transition:0.5s
+}
+.contact button:hover{
+	background-color:white;
+	color:#1e75ba;
+}
+#map{
+    width: 100%;
+    height: 200px;
+}
+
+
+/*------footer style begin------*/
+.footer{
+	background-color: #424242;
+	padding: 10px;
+}
+.left{
+	text-align: left;
+}
+.right{
+	text-align: right;
+}
+.left, .right, .right a{
+	font-size: 12px;
+	color: white;
+	text-decoration: none;
+}
+/*------footer style end------*/
+
+
+/*------login and signup page style begin------*/
+.signin, .signup{
+  background-color: #526290;
+}
+.signupMain{
+	background-image:url("../images/signupBack.jpg");
+	background-repeat:no-repeat;
+	background-size:cover
+}
+.signinMain{
+	background-image:url("../images/signupBack.jpg");
+	background-repeat:no-repeat;
+	background-size:cover
+}
+.signinMain, .signupMain{
+  padding: 20px 80px;
+  color:#1e75ba;
+  height:120vh;
+  margin-top:110px;
+}
+.signupDetails, .signinDetails{
+	color:white;
+	font-size:40px;
+	padding-top:100px;
+	font-weight:bold
+}
+.signinText, .signuptext{
+  font-size:28px;
+  padding:10px;
+  margin-left:120px;
+  color:white;
+  padding-top:50px
+}
+.form{
+  border-radius:10px;
+  width:500px;
+  padding:20px 20px 40px 20px;
+  margin-left:120px;
+  background-color:rgba(0,0,0,.3);
+  text-align:center;
+  color:white;
+}
+.form label{
+  font-size:16px;
+  font-weight:300;
+  text-align:left;
+  width:100%;
+  color:white;
+}
+.form input, .form button{
+  width:100%;
+}
+.form input{
+  padding:8px;
+  margin-bottom:15px;
+  color:black;
+  border:1px solid #cdcdcd;
+  outline:none;
+  border-radius:3px;
+}
+input:focus{
+  outline:none;
+}
+.signinButton, .facebook{
+  padding:11px;
+  font-size:16px;
+  font-weight:500;
+  outline:none;
+  border-radius:3px;
+  color:white;
+  transition:.5s;
+}
+.signinButton{
+  background-color: #1e75ba;
+  margin:10px 0px;
+  border: 1px solid #1e75ba;
+}
+.facebook{
+  background-color: #1e87be;
+  margin-top:5px;
+  border: 1px solid #1e87be;
+}
+.signinButton:hover{
+  background-color: white;
+  color:#1e75ba;
+}
+.facebook:hover{
+  background-color: white;
+  color:#1e87be;
+}
+
+.forgotPassword{
+  float:left;
+  color:white;
+  padding-top:10px;
+}
+.text-warning{
+	color:rgba(255,255,255,.8);
+	background-color:rgba(30,117,186,.5);
+	border: 1px solid #3593dd;
+	border-radius:5px;
+	width:100%;
+	text-align:left;
+	margin-top:40px;
+	padding:10px;
+	display:none;
+}
+.text-warning img{
+	width:12px;
+	float:right;
+	padding-top:5px
+}
+.text-warning img:hover{
+	width:12px;
+	cursor:pointer
+}
+.signupText{
+  float:right;
+  padding-top:10px;
+  color:white;
+}
+.createAcct{
+  color:white;
+  text-decoration:underline;
+}
+.forgotText{
+	color:white;
+	font-size:28px;
+	padding:20px
+}
+/*------login and signup page style begin------*/
+
+/*Booking page style begin*/
+.bookingForm{
+	padding:120px 0px 20px 10%;
+}
+.bookingHead{
+	font-size:32px;
+	font-family:raleway;
+	width:100%;
+	border-width:0px 0px 1px 0px;
+	border-style:solid;
+	margin-bottom:20px;
+}
+.bookingForm label{
+	margin-left:5px
+}
+.bookingForm input, .bookingForm select{
+	padding:7px;
+	width:95%;
+	height:45px;
+	margin:0px 3px;
+	border:1px solid #b9bbbb;
+	border-radius:3px;
+	font-size:16px;
+	margin-bottom:20px;
+	outline:none;
+}
+.bookingForm input[type="radio"]{
+	height:20px;
+	width:20px;
+	margin:0px 5px 20px 15px;
+	border:1px solid #b9bbbb;
+	border-radius:3px;
+	font-size:16px;
+	outline:none
+}
+input[type=date]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    display: none;
+}
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    margin: 0; 
+}
+.bookingForm button{
+	padding:7px;
+	height:45px;
+	background-color:#00bfc1;
+	border:1px solid #00bfc1;
+	color:white;
+	border-radius:3px;
+	border:1px solid #00bfc1;
+	transition:.5s;
+}
+.bookingForm button:hover{
+	background-color:white;
+	color:#00bfc1;
+}
+
+.confirmMobile{
+	padding:7px 3px 15px 3px;
+}
+.confirmMobile button{
+	padding:10px 20px;
+	font-size:18px;
+}
+.otp{
+	display: none;
+	margin:10px 0px;
+}
+.otp button{
+	margin-top:25px;
+}
+.im-checkout-btn{
+	background-color:#1e75ba !important;
+	font-size:18px;
+	border: 1px solid #1e75ba !important;
+}
+.im-checkout-btn:hover{
+	background-color:white !important;
+	font-size:18px;
+	color:#1e75ba !important;
+	border: 1px solid #1e75ba !important;
+}
+.btn--flat{
+	border-radius:5px !important
+}
+
+.incorrectOTP{
+	display:none;
+}
+.payment a{
+	text-decoration:none !important;
+}
+/*booking page style end*/
+
+.sidebanner1{
+padding:0px 0px 0px 15%;
+position:absolute;
+}
+.sidebanner2{
+padding:0px 0px 0px 15%;
+position:absolute;
+opacity:0;
+}
+.sidebanner1 img, .sidebanner2 img{
+	width:80%;
+}
+.sidebanner11{
+position:absolute;
+}
+.sidebanner22{
+position:absolute;
+opacity:0;
+}
+.sidebanner11 img, .sidebanner22 img{
+	width:100%;
+}
+
+/*------packages page style begin------*/
+.packagesMain{
+	padding:120px 80px;
+}
+.packageHead{
+	font-size:28px;
+	color:#1e75ba;
+	padding:30px 0px;
+}
+.packageGoa, .packageOoty, .packageMunnar, .packageKodai, .packagePondi, .packageMysore, .packageKanya, .packageCoorg{
+	height:150px;
+	background-size:cover;
+	margin:5px;
+}
+.packageGoa{
+background-image:url("../images/packages/goa.jpg")
+}
+.packageOoty{
+background-image:url("../images/packages/ooty.jpg")
+}
+.packageMunnar{
+background-image:url("../images/packages/munnar.jpg")
+}
+.packageKodai{
+background-image:url("../images/packages/kodaikanal.jpg")
+}
+.packageKanya{
+background-image:url("../images/packages/kanyakumari.jpg")
+}
+.packageCoorg{
+background-image:url("../images/packages/coorg.jpg")
+}
+.packagePondi{
+background-image:url("../images/packages/pondi.jpg")
+}
+.packageMysore{
+background-image:url("../images/packages/mysore.jpg")
+}
+.description{
+	padding:5px
+}
+.detailHead{
+	font-size:18px;
+	font-weight:700;
+	font-family:Raleway;
+}
+.detailText{
+	color:grey;
+	text-align:justify;
+	padding-top:5px;
+}
+.packagesMain button{
+	padding:2px 4px;
+	height:40px;
+	width:100px;
+	background-color:#00bfc1;
+	border:1px solid #00bfc1;
+	color:white;
+	border-radius:3px;
+	border:1px solid #00bfc1;
+	transition:.5s;
+	margin-top:50px;
+	margin-left:15px;
+}
+.packagesMain button:hover{
+	background-color:white;
+	color:#00bfc1;
+}

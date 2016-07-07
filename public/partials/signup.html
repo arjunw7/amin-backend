@@ -1,0 +1,41 @@
+<div class="main" style="overflow:hidden; height:100vh">
+	<div class="header">
+		<div class="logo">
+			<a href="/#home"><img src="images/logo.png"></a>
+		</div>
+		<div class="menu">
+			<ul>
+				<li class="menuItem"><a href="/#book" style="color:#1e75ba">Book now</a></li>
+				<li class="menuItem"><a href="">Travel Packages</a></li>
+				<li class="menuItem"><a href="">Pricing</a></li>
+				<li class="menuItem"><a href="/#contact">Inquire Now</a></li>
+			</ul>
+		</div>
+	</div>
+	<div class="signupMain">
+		<div class="row">
+			<div class="signupDetails col-md-6">
+				Signup today and get <b>10% discount</b> on your first taxi ride.
+			</div>
+		    <div class="form col-md-6" align="center">
+		    	<form ng-submit="register()">
+		    	<label>Full Name</label>
+		        <input type="text" ng-model="user.fullName"placeholder="enter your full name" required>
+		    	<label>Username</label>
+		        <input type="text" ng-model="user.username"placeholder="select a username" required>
+		        <label>Email Adress</label>
+		        <input type="email" ng-model="user.email" placeholder="email"  required>
+		        <label>Mobile Number</label>
+		        <input type="text" ng-model="user.contact" placeholder="mobile number" maxlength="10" minlength="10" required>
+		        <label>Password</label>
+		        <input type="password" ng-model="user.password" placeholder="password" pattern=".{6,}" required>
+		        <button type="submit" value="signup" class="signinButton">Sign up</button>
+		        </form>
+		        or
+		        <a href="/auth/facebook"><button class="facebook">Sign up with Facebook</button></a>
+		        <div class="signupText">Already a member? <a href="/#login"><span class="createAcct">Sign in</span></a></div>
+		        <p class="text-warning">{{ error_message }} <img src="../images/cross.png"></p>
+		    </div>
+		 </div>
+	</div>
+</div>
