@@ -253,6 +253,13 @@ app.controller('authController', function($scope, $http, $rootScope, $location, 
 
     }
 
+    $scope.submitContact = function(){
+      $http.post('/api/contact', $scope.contact);
+      alert('Yoyr response has been taken. We\'ll get back to you shoertly');
+      $location.path('/');
+
+    }
+
 
 
   $scope.load = function() {

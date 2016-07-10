@@ -1173,7 +1173,7 @@ ul{
 	padding:0px 20px 0px 20px;
 }
 .emergencyText{
-	font-size:30px;
+	font-size:26px;
 	padding-top:30px;
 }
 .emergencyButton button{
@@ -1193,7 +1193,8 @@ ul{
 	color:#1e75ba;
 }
 .family img{
-	width:70%
+	width:80%;
+	margin-left:15%; 
 }
 /*------eergency style end-------*/
 

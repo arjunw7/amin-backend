@@ -58,6 +58,30 @@ router.route('/confirmOTP')
         return res.send('done'); 
     });
 
+router.route('/contact')
+    .post(function(req, res){
+         var smtpTransport = nodemailer.createTransport('SMTP', {
+                service: 'Gmail',
+                auth: {
+                  user: 'arjunw7@gmail.com',
+                  pass: '9943130589'
+                }
+              });
+              var mailOptions = {
+                to: 'arjunw7@gmail.com',
+                from: req.body.email,
+                subject: 'Website contact form',
+                text: 'Website contact form,\n\n' +
+                    'Name: ' + ' ' + req.body.name +
+                    '\nEmail: ' + ' ' + req.body.email +
+                    '\nContact Number: ' + ' ' + req.body.number +
+                    '\nMessage: ' + ' ' + req.body.message
+              };
+              smtpTransport.sendMail(mailOptions, function(err) {
+                console.log('Mail Sent');
+              });
+    });
+
 router.route('/booking')
 
     //gets the menu
