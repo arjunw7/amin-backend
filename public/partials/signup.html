@@ -17,7 +17,8 @@
 			<div class="signupDetails col-md-6">
 				Signup today and get <b>10% discount</b> on your first taxi ride.
 			</div>
-		    <div class="form col-md-6" align="center">
+			<div class=" col-md-6">
+		    <div class="form" align="center">
 		    	<form ng-submit="register()">
 		    	<label>Full Name</label>
 		        <input type="text" ng-model="user.fullName"placeholder="enter your full name" required>
@@ -35,6 +36,7 @@
 		        <a href="/auth/facebook"><button class="facebook">Sign up with Facebook</button></a>
 		        <div class="signupText">Already a member? <a href="/#login"><span class="createAcct">Sign in</span></a></div>
 		        <p class="text-warning">{{ error_message }} <img src="../images/cross.png"></p>
+		    </div>
 		    </div>
 		 </div>
 	</div>
