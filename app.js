@@ -9,7 +9,7 @@ var session = require('express-session');
 var cors = require('cors');
 
 var mongoose = require('mongoose');
-mongoose.connect('mongodb://localhost/sasi');
+mongoose.connect('mongodb://arjunw7:13bcb0062@ds017155.mlab.com:17155/sasitravels');
 require('./models/models');
 
 var api = require('./routes/api');
