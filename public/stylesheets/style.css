@@ -1170,7 +1170,7 @@ ul{
 /*------emergency style begin------*/
 .emergency{
 	background-color:#e2e0e0;
-	padding:20px 20px 40px 20px;
+	padding:0px 20px 0px 20px;
 }
 .emergencyText{
 	font-size:30px;
@@ -1193,7 +1193,7 @@ ul{
 	color:#1e75ba;
 }
 .family img{
-	width:100%
+	width:70%
 }
 /*------eergency style end-------*/
 
@@ -1556,28 +1556,28 @@ opacity:0;
 	margin:5px;
 }
 .packageGoa{
-background-image:url("../images/packages/goa-thumb.jpg")
+background-image:url("../images/packages/goa.jpg")
 }
 .packageOoty{
-background-image:url("../images/packages/ooty-thumb.jpg")
+background-image:url("../images/packages/ooty.jpg")
 }
 .packageMunnar{
-background-image:url("../images/packages/munnar-thumb.jpg")
+background-image:url("../images/packages/munnar.jpg")
 }
 .packageKodai{
-background-image:url("../images/packages/kodaikanal-thumb.jpg")
+background-image:url("../images/packages/kodaikanal.jpg")
 }
 .packageKanya{
-background-image:url("../images/packages/kanyakumari-thumb.jpg")
+background-image:url("../images/packages/kanyakumari.jpg")
 }
 .packageCoorg{
-background-image:url("../images/packages/coorg-thumb.jpg")
+background-image:url("../images/packages/coorg.jpg")
 }
 .packagePondi{
-background-image:url("../images/packages/pondi-thumb.jpg")
+background-image:url("../images/packages/pondi.jpg")
 }
 .packageMysore{
-background-image:url("../images/packages/mysore-thumb.jpg")
+background-image:url("../images/packages/mysore.jpg")
 }
 .description{
 	padding:5px
