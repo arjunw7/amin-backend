@@ -193,6 +193,7 @@ app.controller('authController', function($scope, $http, $rootScope, $location, 
       if(data.state == 'success'){
         $rootScope.authenticated = true;
         $rootScope.current_user = data.user.username;
+        $rootScope.current_user_name = data.user.fullName;
         $location.path('/');
       }
       else{
