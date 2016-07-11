@@ -752,7 +752,9 @@ input[type=number]::-webkit-outer-spin-button {
 .btn--flat{
 	border-radius:5px !important
 }
-
+.payment{
+	display: none;
+}
 .incorrectOTP{
 	display:none;
 }
