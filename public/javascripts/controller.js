@@ -239,14 +239,14 @@ app.controller('authController', function($scope, $http, $rootScope, $location, 
       });
     };
 
-    $scope.verifyOTP = function(){
+     $scope.verifyOTP = function(){
       if($scope.enteredOTP==$rootScope.otp){
         console.log("OTP verified");
-        $scope.data_sign = $scope.booking.customerName + '|' + $scope.booking.customerEmail + '|' + $scope.booking.customerContact + '|' + $rootScope.booking_id;
+        $scope.data_sign = $scope.booking.customerEmail + '|' + $rootScope.booking_id + '|' + $scope.booking.customerName + '|' + $scope.booking.customerContact;
          $scope.hashSalt = CryptoJS.HmacSHA1($scope.data_sign, "b2335088f7fd4d45b0d122a65c4381c2");
          console.log($scope.hashSalt);
          console.log($scope.data_sign);
-        $scope.link = 'https://www.instamojo.com/arjunw7/sasi-travels/?data_name=' + $scope.booking.customerName + '&data_email=' + $scope.booking.customerEmail + '&data_phone=' + $scope.booking.customerContact + '&data_Field_56979=' + $rootScope.booking_id + '&data_sign=' + $scope.hashSalt + '&data_readonly=data_name&data_readonly=data_email&data_readonly=data_phone&data_readonly=data_amount&data_readonly=data_Field_56979';
+        $scope.link = 'https://www.instamojo.com/arjunw7/sasi-travels/?data_readonly=data_email&data_readonly=data_Field_56979&data_readonly=data_name&data_readonly=data_phone&data_email=' + $scope.booking.customerEmail + '&data_Field_56979=' + $rootScope.booking_id + '&data_name=' + $scope.booking.customerName + '&data_phone=' + $scope.booking.customerContact + '&data_sign=' + $scope.hashSalt + '&data_hidden=data_Field_56979';
         console.log($scope.link);
        angular.element(".OTPform :input").prop("disabled", true);
         angular.element(".payment").css({"display": "block"});
@@ -256,7 +256,7 @@ app.controller('authController', function($scope, $http, $rootScope, $location, 
         angular.element(".incorrectOTP").css({"display":"block"})
 
     }
-
+   
     $scope.submitContact = function(){
       $http.post('/api/contact', $scope.contact);
       alert('Yoyr response has been taken. We\'ll get back to you shoertly');
