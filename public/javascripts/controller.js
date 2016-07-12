@@ -242,7 +242,7 @@ app.controller('authController', function($scope, $http, $rootScope, $location, 
     $scope.verifyOTP = function(){
       if($scope.enteredOTP==$rootScope.otp){
         console.log("OTP verified");
-        $scope.data_sign = '1000' + $scope.booking.customerName + '|' + $scope.booking.customerEmail + '|' + $scope.booking.customerContact + '|' + $rootScope.booking_id;
+        $scope.data_sign = $scope.booking.customerName + '|' + $scope.booking.customerEmail + '|' + $scope.booking.customerContact + '|' + $rootScope.booking_id;
          $scope.hashSalt = CryptoJS.HmacSHA1($scope.data_sign, "b2335088f7fd4d45b0d122a65c4381c2");
          console.log($scope.hashSalt);
          console.log($scope.data_sign);
