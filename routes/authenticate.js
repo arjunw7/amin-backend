@@ -5,7 +5,9 @@ var async = require('async');
 var crypto = require('crypto');
 var bCrypt = require('bcrypt-nodejs');
 var nodemailer = require('nodemailer');
-var msg91 = require("msg91")("116142AQGxO25kEXN57658c70", "SASITR", 4 );  
+var msg91 = require("msg91")("116142AQGxO25kEXN57658c70", "SASITR", 4 );
+var Insta = require('instamojo-nodejs');
+Insta.setKeys('9658583007a01b23f0ba90c1003641b8', '4f5ff239ed5615148912ce699dfaefc6'); 
 var router = express.Router();
 
 module.exports = function(passport){
@@ -157,6 +159,25 @@ module.exports = function(passport){
             res.redirect('/');
           });
     });
+  
+    router.route('/paymentSuccess')
+    .get(function(req, res) {
+          Insta.getAllPaymentRequests(function(error, response) {
+  if (error) {
+    // Some error
+  } else {
+    console.log(response);
+  }
+});
+
+          // User.findOne({ resetPasswordToken: req.params.token, resetPasswordExpires: { $gt: Date.now() } }, function(err, user) {
+          //   if (!user) {
+          //    console.log('Password reset token is invalid or has expired.');
+          //     return res.redirect('/forgot');
+          //   }
+          //   res.redirect('/reset')
+          // });
+        })
     
 
     router.get('/facebook', passport.authenticate('facebook', { scope: 'email'}));
