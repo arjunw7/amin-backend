@@ -155,7 +155,14 @@ app.config(function($routeProvider, $locationProvider, $httpProvider){
        loggedin: checkLoggedin 
       }
     })
-
+    //payment success
+    .when('/success', {
+      templateUrl: 'partials/success.html',
+      controller: 'authController',
+      resolve: {
+       loggedin: checkLoggedin 
+      }
+    })
     .when('/book', {
       templateUrl: 'partials/booking.html',
       controller: 'authController',

@@ -854,3 +854,17 @@ background-image:url("../images/packages/mysore.jpg")
 	background-color:white;
 	color:#00bfc1;
 }
+.thankMain{
+	min-height:110vh;
+	padding-top:120px;
+	padding-left:60px;
+	font-family:Raleway;
+}
+.thankHead{
+	padding-top:40px;
+	font-size:60px;
+}
+.thankText{
+	font-size:22px;
+
+}
