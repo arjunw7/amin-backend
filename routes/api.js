@@ -137,7 +137,10 @@ router.route('/booking')
 
 router.route('/webhook')
     .post(function (req, res){
-         Booking.findOne({ _id: req.params.custom_fields.Field_56979.value}, function(err, data) {
+        var bookingDetail = req.body;
+        res.status(200);
+        res.send(bookingDetail);
+         Booking.findOne({ _id: bookingDetail.custom_fields.Field_56979.value}, function(err, data) {
             if (!data) {
              console.log('data not found');
             }
