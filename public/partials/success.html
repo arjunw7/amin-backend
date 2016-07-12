@@ -1,4 +1,19 @@
-
+	<script type="text/javascript">
+		function getUrlVars()
+		{
+		    var vars = [], hash;
+		    var hashes = window.location.href.slice(window.location.href.indexOf('?') + 1).split('&');
+		    for(var i = 0; i < hashes.length; i++)
+		    {
+		        hash = hashes[i].split('=');
+		        vars.push(hash[0]);
+		        vars[hash[0]] = hash[1];
+		    }
+		    return vars;
+		}
+		var payment_id = getUrlVars()["payment_id"];
+		document.getElementById("pid").innerHTML = payment_id;
+	</script>
 	<div class="airportDrop">
 		<img src="images/icon/plane.png">
 		<div class="dropText">Airport drop</div>
@@ -48,8 +63,9 @@
 						Thank You!
 					</div>
 					<div class="thankText">
-						Your booking has been successfully confirmed. Your payment id is 151fdf565.<br>
+						Your booking has been successfully confirmed. Your payment id is <span id="pid" ng-model="payment-id"></span><br>
 						Kindly follow the instructions recieved on your mobile phone for furthur details.
+						{{payment-id}}
 					</div>
 				</div>
 			</div>

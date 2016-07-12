@@ -170,6 +170,7 @@ app.config(function($routeProvider, $locationProvider, $httpProvider){
        loggedin: checkLoggedin 
       }
     });
+    $locationProvider.html5Mode(true);
 });
 
 app.controller('authController', function($scope, $http, $rootScope, $location, $routeParams, $window){
