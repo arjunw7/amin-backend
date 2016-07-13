@@ -138,15 +138,16 @@ router.route('/booking')
 router.route('/webhook')
     .post(function (req, res){
         var bookingDetail = req.body;
-         // Booking.findOne({ _id: bookingDetail.custom_fields.Field_56979.value}, function(err, data) {
-         //    if (!data) {
-         //     console.log('data not found');
-         //    }
-         //    Booking.status="paid";
-         //    Booking.payment_id=req.params.payment_id;
+         Booking.findOne({ _id: bookingDetail.custom_fields.Field_56979.value}, function(err, data) {
+            if (!data) {
+             console.log('data not found');
+            }
+            Booking.status="paid";
+            Booking.payment_id=req.params.payment_id;
             res.status(200);
-            res.send(bookingDetail);
-          // });
+            res.send('bookingDetail');
+          });
+         res.status(200);
     });
 
 router.route('/users/:id')

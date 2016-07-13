@@ -383,13 +383,8 @@ app.controller('authController', function($scope, $http, $rootScope, $location, 
         angular.element(".dropdownMain").click(function(e){
           e.stopPropagation();
           return false;
-        })
-        
-
-        
+        })   
    };
-
-   
    //Calling the load function
    $scope.load();
 
