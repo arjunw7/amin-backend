@@ -140,7 +140,7 @@ router.route('/paymentRequest')
         .post(function (req, res){
             var data = new Insta.PaymentData();
             data.purpose = "Sasi Travels";
-            data.amount = 1000; 
+            data.amount = 9; 
             data.buyer_name = req.body.customerName;
             data.email = req.body.costomerEmail;
             data.phone = req.body.customerContact;
