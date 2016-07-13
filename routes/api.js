@@ -8,7 +8,8 @@ var crypto = require('crypto');
 var bCrypt = require('bcrypt-nodejs');
 var nodemailer = require('nodemailer');
 var msg91 = require("msg91")("116142AQGxO25kEXN57658c70", "SASITR", 4 );  
-
+var Insta = require('instamojo-nodejs');
+Insta.setKeys('9658583007a01b23f0ba90c1003641b8', '4f5ff239ed5615148912ce699dfaefc6'); 
 var router = express.Router();
 
 
@@ -135,20 +136,39 @@ router.route('/booking')
         });
     });
 
-router.route('/webhook')
-    .post(function (req, res){
-        var bookingDetail = req.body;
-         Booking.findOne({ _id: bookingDetail.custom_fields.Field_56979.value}, function(err, data) {
-            if (!data) {
-             console.log('data not found');
-            }
-            Booking.status="paid";
-            Booking.payment_id=req.params.payment_id;
-            res.status(200);
-            res.send('bookingDetail');
-          });
-         res.status(200);
-    });
+router.route('/paymentRequest')
+        .post(function (req, res){
+            var data = new Insta.PaymentData();
+            data.purpose = "Sasi Travels";
+            data.amount = 1000; 
+            data.buyer_name = req.body.customerName;
+            data.email = req.body.costomerEmail;
+            data.phone = req.body.customerContact;
+            data.allow_repeated_payments = 'False';
+            data.redirect_url = 'http://www.sasitravels.in/#/success';
+            Insta.createPayment(data, function(error, response) {
+              if (error) {
+                console.log()
+              } else {
+                // Payment redirection link at response.payment_request.longurl
+
+                console.log(response);
+                res.send(response);
+              }
+            });
+        });
+
+router.route('/savePayment')
+        .post(function (req, res){
+            var req_id = req.body.payment_request_id;
+            Insta.getPaymentRequestStatus(req_id, function(error, response) {
+              if (error) {
+                console.log(data);
+              } else {
+                console.log(response);
+              }
+            });
+        });
 
 router.route('/users/:id')
     

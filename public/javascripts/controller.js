@@ -11,6 +11,7 @@ var app = angular.module('sasitravels',['ngRoute', 'ngResource']).run(function($
   $rootScope.current_user_name = '';
   $rootScope.current_otp = '';
   $rootScope.booking_id = '';
+  $rootScope.payment_request_id = '935f5884d4244db6b0c3220e4a4315fc';
 });
 
 app.config(function($routeProvider, $locationProvider, $httpProvider){
@@ -186,7 +187,6 @@ app.config(function($routeProvider, $locationProvider, $httpProvider){
        loggedin: checkLoggedin 
       }
     });
-    $locationProvider.html5Mode(true);
 });
 
 app.controller('authController', function($scope, $http, $rootScope, $location, $routeParams, $window){
@@ -252,7 +252,7 @@ app.controller('authController', function($scope, $http, $rootScope, $location, 
     };
     $scope.addBooking = function(current_user){
       $rootScope.otp = Math.floor((Math.random() * 10000) + 1);
-      $scope.newBooking = {bookingType: $scope.booking.bookingType, journeyType: $scope.booking.journeyType, pickupLocation: $scope.booking.pickupLocation, dropLocation: $scope.booking.dropLocation,  departDate: $scope.booking.departDate, returnDate: $scope.booking.returnDate, departTime: $scope.booking.departTime, returnTime: $scope.booking.returnTime, passengers: $scope.booking.passengers, carType: $scope.booking.carType, customerName: $scope.booking.customerName, customerEmail: $scope.booking.customerEmail, customerContact: $scope.booking.customerContact, customerAddress: $scope.booking.customerAddress, userId: current_user, otp: $rootScope.otp };
+      $rootScope.newBooking = {bookingType: $scope.booking.bookingType, journeyType: $scope.booking.journeyType, pickupLocation: $scope.booking.pickupLocation, dropLocation: $scope.booking.dropLocation,  departDate: $scope.booking.departDate, returnDate: $scope.booking.returnDate, departTime: $scope.booking.departTime, returnTime: $scope.booking.returnTime, passengers: $scope.booking.passengers, carType: $scope.booking.carType, customerName: $scope.booking.customerName, customerEmail: $scope.booking.customerEmail, customerContact: $scope.booking.customerContact, customerAddress: $scope.booking.customerAddress, userId: current_user, otp: $rootScope.otp };
       $http.post('api/booking', $scope.newBooking).success(function(data){
         console.log(data);
         $rootScope.booking_id = data._id;
@@ -262,24 +262,47 @@ app.controller('authController', function($scope, $http, $rootScope, $location, 
        console.log("done");
       });
     };
-
-     $scope.verifyOTP = function(){
+      $scope.verifyOTP = function(){
       if($scope.enteredOTP==$rootScope.otp){
         console.log("OTP verified");
-        $scope.data_sign = $scope.booking.customerEmail + '|' + $rootScope.booking_id + '|' + $scope.booking.customerName + '|' + $scope.booking.customerContact;
-         $scope.hashSalt = CryptoJS.HmacSHA1($scope.data_sign, "b2335088f7fd4d45b0d122a65c4381c2");
-         console.log($scope.hashSalt);
-         console.log($scope.data_sign);
-        $scope.link = 'https://www.instamojo.com/arjunw7/sasi-travels/?data_readonly=data_email&data_readonly=data_Field_56979&data_readonly=data_name&data_readonly=data_phone&data_email=' + $scope.booking.customerEmail + '&data_Field_56979=' + $rootScope.booking_id + '&data_name=' + $scope.booking.customerName + '&data_phone=' + $scope.booking.customerContact + '&data_sign=' + $scope.hashSalt + '&data_hidden=data_Field_56979';
-        console.log($scope.link);
-       angular.element(".OTPform :input").prop("disabled", true);
-        angular.element(".payment").css({"display": "block"});
-        angular.element("a.im-checkout-btn").attr("href",$scope.link);
+        $http.post('api/paymentRequest', $rootScope.newBooking).success(function(data){
+          console.log(data);
+          $scope.link = data.payment_request.longurl;
+          $rootScope.payment_request_id = data.payment_request.id;
+           angular.element(".OTPform :input").prop("disabled", true);
+            angular.element(".payment").css({"display": "block"});
+        angular.element("a.paymentHref").attr("href",$scope.link);
+        });
+       
       }
       else
         angular.element(".incorrectOTP").css({"display":"block"})
 
     }
+
+    $scope.savePayment = function(){
+      $scope.paymentDetails = {payment_request_id: $rootScope.payment_request_id}
+      $http.post('api/savePayment', $scope.paymentDetails).success(function(data){
+          console.log(data);
+    });
+  }
+    //  $scope.verifyOTP = function(){
+    //   if($scope.enteredOTP==$rootScope.otp){
+    //     console.log("OTP verified");
+    //     $scope.data_sign = $scope.booking.customerEmail + '|' + $rootScope.booking_id + '|' + $scope.booking.customerName + '|' + $scope.booking.customerContact;
+    //      $scope.hashSalt = CryptoJS.HmacSHA1($scope.data_sign, "b2335088f7fd4d45b0d122a65c4381c2");
+    //      console.log($scope.hashSalt);
+    //      console.log($scope.data_sign);
+    //     $scope.link = 'https://www.instamojo.com/arjunw7/sasi-travels/?data_readonly=data_email&data_readonly=data_Field_56979&data_readonly=data_name&data_readonly=data_phone&data_email=' + $scope.booking.customerEmail + '&data_Field_56979=' + $rootScope.booking_id + '&data_name=' + $scope.booking.customerName + '&data_phone=' + $scope.booking.customerContact + '&data_sign=' + $scope.hashSalt + '&data_hidden=data_Field_56979';
+    //     console.log($scope.link);
+    //    angular.element(".OTPform :input").prop("disabled", true);
+    //     angular.element(".payment").css({"display": "block"});
+    //     angular.element("a.im-checkout-btn").attr("href",$scope.link);
+    //   }
+    //   else
+    //     angular.element(".incorrectOTP").css({"display":"block"})
+
+    // }
    
     $scope.submitContact = function(){
       $http.post('/api/contact', $scope.contact);
