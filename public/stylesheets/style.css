@@ -547,8 +547,8 @@ ul{
 .signinMain, .signupMain{
   padding: 20px 80px;
   color:#1e75ba;
-  margin-top:110px;
-  min-height:100vh
+  padding-top:110px;
+  min-height:100vh;
 }
 .signupDetails, .signinDetails{
 	color:white;
@@ -559,9 +559,9 @@ ul{
 .signinText, .signuptext{
   font-size:28px;
   padding:10px;
-  margin-left:120px;
+  margin-left: 9%;
   color:white;
-  padding-top:50px
+  padding-top:50px;
 }
 .form{
   border-radius:10px;

@@ -169,6 +169,22 @@ app.config(function($routeProvider, $locationProvider, $httpProvider){
       resolve: {
        loggedin: checkLoggedin 
       }
+    })
+    //payment success
+    .when('/admin', {
+      templateUrl: 'partials/adminLogin.html',
+      controller: 'authController',
+      resolve: {
+       loggedin: checkLoggedin 
+      }
+    })
+    //payment success
+    .when('/dashboard', {
+      templateUrl: 'partials/dashboard.html',
+      controller: 'authController',
+      resolve: {
+       loggedin: checkLoggedin 
+      }
     });
     $locationProvider.html5Mode(true);
 });
