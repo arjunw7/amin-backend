@@ -173,6 +173,11 @@ router.route('/savePayment')
 
                 booking.save(function(err) {
                   console.log(booking);
+                  var mobileNo = req.body.customerContact;
+                  msg91.send(mobileNo, 'Your taxi booking (' + req.body.booking_id ') has been confirmed. Kindlu contact MD Asil(9042099195/9894599145) for futhur details.\n\nRegards\nSasi Travels', function(err, response){
+                    console.log(err);
+                    console.log(response);
+                  });
                 });
               });
         });

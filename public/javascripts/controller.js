@@ -268,6 +268,7 @@ $scope.addBooking = function(current_user){
   $http.post('api/booking', $scope.newBooking).success(function(data){
     console.log(data);
     $rootScope.booking_id = data._id;
+    $rootScope.customerContact = data.customerContact;
    angular.element(".otp").css({'display': 'block'});
    angular.element(".book-form :input").prop("disabled", true);
     alert("Please enter the one time Password sent on your mobile number to confirm the booking.");
@@ -299,7 +300,7 @@ $scope.allUsers=userService.query();
 
 
 $scope.savePayment = function(){
-  $scope.paymentDetails={payment_id: $routeParams.payment_id, payment_request_id: $routeParams.payment_request_id, booking_id: $rootScope.booking_id};
+  $scope.paymentDetails={payment_id: $routeParams.payment_id, payment_request_id: $routeParams.payment_request_id, booking_id: $rootScope.booking_id, customerContact: $rootScope.customerContact};
   $http.post('api/savePayment', $scope.paymentDetails).success(function(data){
     console.log(data);
   })
