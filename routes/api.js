@@ -168,16 +168,17 @@ router.route('/savePayment')
                 }
 
                 booking.status = 'paid';
+                var mobileNo = req.body.customerContact;
+                  msg91.send(mobileNo, 'Your taxi booking (' + req.body.booking_id + ') has been confirmed. Kindlu contact MD Asil(9042099195/9894599145) for futhur details.\n\nRegards\nSasi Travels', function(err, response){
+                    console.log(err);
+                    console.log(response);
+                  });
                 booking.payment_request_id = req.body.payment_request_id;
                 booking.payment_id = req.body.payment_id; 
 
                 booking.save(function(err) {
                   console.log(booking);
-                  var mobileNo = req.body.customerContact;
-                  msg91.send(mobileNo, 'Your taxi booking (' + req.body.booking_id ') has been confirmed. Kindlu contact MD Asil(9042099195/9894599145) for futhur details.\n\nRegards\nSasi Travels', function(err, response){
-                    console.log(err);
-                    console.log(response);
-                  });
+                  
                 });
               });
         });
