@@ -17,7 +17,7 @@ var bookingSchema = new mongoose.Schema({
     customerAddress: String,
     userId: String,
     status: {type: String, default: 'unpaid'},
-    payment_id: {type: String, default: ' '},
+    payment_id: {type: String, default: '-'},
     otp: String
 });
 

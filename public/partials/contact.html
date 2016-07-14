@@ -30,7 +30,6 @@
 					<a style="cursor:pointer" class="dropdownMain">{{ current_user_name }}<img src="images/downArrow.png" width="20px"></a>
 						<ul class="dropdown">
 							<li><a href="/#profile" style="cursor:pointer">My profile</a></li>
-							<li><a href="/#bookingHistory" style="cursor:pointer">My bookings</a></li>
 							<li><a ng-click="signout()" style="cursor:pointer">Signout</a></li>
 						</ul>
 					</li>
@@ -60,15 +59,15 @@
 				<div id="map">
 					<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d817.3591898277956!2d79.15422509463366!3d12.969455059447826!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bad470ab1f0c851%3A0xe3c11bc5773d5cf6!2sSasi+Tours+%26+Travels!5e0!3m2!1sen!2sin!4v1467034175809" width="100%" height="200" frameborder="0" style="border:0" allowfullscreen></iframe>
 				</div>
-				<form>
+				<form ng-submit="submitContact()">
 					<div class="row">
 						<div class="col-md-6">
-							<input type="text" placeholder="name" required>
-							<input type="email" placeholder="email" required>
-							<input type="text" placeholder="contact number" required>
+							<input type="text" placeholder="name" ng-model="contact.name" required>
+							<input type="email" placeholder="email" ng-model="contact.email" required>
+							<input type="text" placeholder="contact number" ng-model="contact.number" pattern="[7-9]{1}[0-9]{9}" required>
 						</div>
 						<div class="col-md-6">
-							<textarea placeholder="message"></textarea>
+							<textarea placeholder="message" ng-model="contact.message"></textarea>
 							<button type="submit">Send</button>
 						</div>
 					</div>

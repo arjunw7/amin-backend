@@ -30,7 +30,6 @@
 					<a style="cursor:pointer" class="dropdownMain">{{ current_user_name }}<img src="images/downArrow.png" width="20px"></a>
 						<ul class="dropdown">
 							<li><a href="/#profile" style="cursor:pointer">My profile</a></li>
-							<li><a href="/#bookingHistory" style="cursor:pointer">My bookings</a></li>
 							<li><a ng-click="signout()" style="cursor:pointer">Signout</a></li>
 						</ul>
 					</li>
@@ -38,6 +37,50 @@
 					
 					</li>
 				</ul>
+			</div>
+		</div>
+		<div class="profileMain">
+			<div class="row">
+				<div class="col-md-8">
+				<div class="userInfo">
+					<div class="row">
+						<div class="col-md-3">
+							<div class="userImage">
+								<img src="../images/user.png">
+							</div>
+						</div>
+						<div class="col-md-9">
+							<div class="userInfoName">{{ current_user_name }}</div>
+							<div class="userInfoEmail">{{ current_user_email}}</div>
+						</div>
+					</div>
+				</div>
+				<div class="bookingHistory">
+					<div class="historyHead">Recent Bookings</div>
+					<div class="historyDetailsHead row">
+						<div class="col-md-2">Date</div>
+						<div class="col-md-2">Pickup Location</div>
+						<div class="col-md-2">Drop Location</div>
+						<div class="col-md-2">Status</div>
+						<div class="col-md-2">Payment Id</div>
+					</div>
+					<div class="historyDetails row" ng-repeat="booking in allBookings | filter: { status: 'paid'} | filter:{userId: current_user}">
+						<div class="col-md-2">{{booking.departDate}}</div>
+						<div class="col-md-2">{{booking.pickupLocation}}</div>
+						<div class="col-md-2">{{booking.dropLocation}}</div>
+						<div class="col-md-2">{{booking.status}}</div>
+						<div class="col-md-2">{{booking.payment_id}}</div>
+					</div>
+				</div>
+				</div>
+				<div class="col-md-4">
+					<div class="sidebanner1">
+						<img src="images/sideBanner1.jpg">
+					</div>
+					<div class="sidebanner2">
+						<img src="images/sideBanner2.jpg">
+					</div>
+				</div>
 			</div>
 		</div>
 

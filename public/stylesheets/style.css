@@ -719,6 +719,12 @@ input[type=number]::-webkit-outer-spin-button {
 	border:1px solid #00bfc1;
 	transition:.5s;
 }
+.payment button{
+	width:250px;
+	font-size:18px;
+	padding:10px;
+	height:50px
+}
 .bookingForm button:hover{
 	background-color:white;
 	color:#00bfc1;
@@ -867,4 +873,35 @@ background-image:url("../images/packages/mysore.jpg")
 .thankText{
 	font-size:22px;
 
+}
+.profileMain{
+	padding-top:120px
+}
+.userInfo, .bookingHistory{
+	padding-left:50px;
+	padding-top:50px;
+}
+.userInfoName{
+	font-size:36px;
+	padding-left:40px;
+	color:grey;
+	font-family:Raleway
+}
+.userInfoEmail{
+	font-size:24px;
+	padding-left:40px;	
+	color:grey;
+	font-family:Raleway
+}
+.historyHead{
+	font-size:24px;
+	padding-bottom:10px;
+}
+.historyDetailsHead{
+	font-size:18px;
+	padding:5px;
+	background-color:#f3f3f3
+}
+.historyDetails{
+	padding:5px
 }

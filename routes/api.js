@@ -140,7 +140,7 @@ router.route('/paymentRequest')
         .post(function (req, res){
             var data = new Insta.PaymentData();
             data.purpose = "Sasi Travels";
-            data.amount = 9; 
+            data.amount = 1000; 
             data.buyer_name = req.body.customerName;
             data.email = req.body.costomerEmail;
             data.phone = req.body.customerContact;
@@ -160,14 +160,21 @@ router.route('/paymentRequest')
 
 router.route('/savePayment')
         .post(function (req, res){
-            var req_id = req.body.payment_request_id;
-            Insta.getPaymentRequestStatus(req_id, function(error, response) {
-              if (error) {
-                console.log(data);
-              } else {
-                console.log(response);
-              }
-            });
+              var payment_id = req.body.payment_id;
+              var payment_request_id = req.body.payment_request_id;
+              Booking.findOne({ _id: req.body.booking_id }, function(err, booking) {
+                if (!booking) {
+                  return res.send('Booking not found');
+                }
+
+                booking.status = 'paid';
+                booking.payment_request_id = req.body.payment_request_id;
+                booking.payment_id = req.body.payment_id; 
+
+                booking.save(function(err) {
+                  console.log(booking);
+                });
+              });
         });
 
 router.route('/users/:id')

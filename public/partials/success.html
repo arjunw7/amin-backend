@@ -11,7 +11,9 @@
 	    }
 	    return vars;
 	}
+	var payment_request_id = getUrlVars()["payment_request_id"];
 	var payment_id = getUrlVars()["payment_id"];
+	document.getElementById("prid").innerHTML = payment_request_id;
 	document.getElementById("pid").innerHTML = payment_id;
 </script>
 <div class="airportDrop">
@@ -44,7 +46,6 @@
 			<a style="cursor:pointer" class="dropdownMain">{{ current_user_name }}<img src="images/downArrow.png" width="20px"></a>
 				<ul class="dropdown">
 					<li><a href="/#profile" style="cursor:pointer">My profile</a></li>
-					<li><a href="/#bookingHistory" style="cursor:pointer">My bookings</a></li>
 					<li><a ng-click="signout()" style="cursor:pointer">Signout</a></li>
 				</ul>
 			</li>
@@ -62,7 +63,8 @@
 				Thank You!
 			</div>
 			<div class="thankText">
-				Your booking has been successfully confirmed. Your payment id is <span id="pid"></span><br>
+				Your booking has been successfully confirmed. Your payment id is <span id="pid"></span>
+				<br>
 				Kindly follow the instructions recieved on your mobile phone for furthur details.
 			</div>
 		</div>
