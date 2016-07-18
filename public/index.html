@@ -13,12 +13,6 @@ Author URL: www.facebook.com/cornifus
 <link rel="stylesheet" type="text/css" href="stylesheets/bootstrap.css">
 <link rel="stylesheet" type="text/css" href="stylesheets/style.css">
 <link rel="stylesheet" type="text/css" href="bower_components/raleway/raleway.css">
-<script src="bower_components/jakubzapletal-crypto-js/src/core.js"></script>
-<script src="bower_components/jakubzapletal-crypto-js/src/hmac.js"></script>
-<script src="bower_components/jakubzapletal-crypto-js/src/md5.js"></script>
-<script src="bower_components/jakubzapletal-crypto-js/src/sha1.js"></script>
-<script src="bower_components/jakubzapletal-crypto-js/src/sha256.js"></script>
-<script src="bower_components/jakubzapletal-crypto-js/src/sha512.js"></script>
 <script type="text/javascript" src="bower_components/jquery/dist/jquery.js"></script>
 <script type="text/javascript" src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
 <script type="text/javascript" src="bower_components/angular/angular.js"></script>
@@ -28,7 +22,15 @@ Author URL: www.facebook.com/cornifus
 <script type="text/javascript" src="bower_components/jquery-ui/jquery-ui.js"></script>
 <script src="javascripts/default.js"></script>
 <script src="javascripts/controller.js"></script>
-<link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+<script type="text/javascript">
+var biggestHeight = "0";
+	$(".slider *").each(function(){
+		if($(this).height()>biggestHeight){
+			biggestHeight = $(this).height();
+		}
+	});
+	$(".slider").height(biggestHeight);
+</script>
 </head>
 <body ng-app="sasitravels">
 	<div id="preloader">

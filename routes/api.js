@@ -144,6 +144,8 @@ router.route('/paymentRequest')
             data.buyer_name = req.body.customerName;
             data.email = req.body.costomerEmail;
             data.phone = req.body.customerContact;
+            data.send_sms = 'False';
+            data.send_email = 'False';
             data.allow_repeated_payments = 'False';
             data.redirect_url = 'http://www.sasitravels.in/#/success';
             Insta.createPayment(data, function(error, response) {
