@@ -127,7 +127,7 @@ body{
 /*------slider style begin------*/
 .slider{
 	padding-top:100px;
-	height:60vh;
+	height:600px;
 }
 .sliderItem1, .sliderItem2, .sliderItem3{
 	position:absolute;
@@ -321,14 +321,14 @@ ul{
 	color: #1e75ba;
 }
 .mysore, .ooty, .pondi, .coorg, .goa, .munnar, .kanyakumari, .kodaikanal{
-	height:45vh;
+	height:400px;
 	background-position:center;
 	background-size:cover;
 	font-family:arial;
 }
 .coorgInside, .mysoreInside, .pondiInside, .ootyInside{
 	width:100%;
-	height: 45vh;
+	height: 400px;
 	position: absolute;
 }
 .goa, .munnar, .kanyakumari, .kodaikanal{
@@ -360,7 +360,7 @@ ul{
 }
 .blueBox{
 	background-color: #115c98;
-	height:45vh;
+	height:400px;
 	font-size:20px;
 	padding:70px 20px;
 	text-align:center;

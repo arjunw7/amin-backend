@@ -317,7 +317,6 @@ $scope.submitContact = function(){
 
 
 $scope.load = function() {
-
     //animateSlider() function definition
      $scope.animateSlider = function(){
       angular.element(".sliderItem1, .sliderItem3").delay(5000).animate({'opacity':'0'},500);
