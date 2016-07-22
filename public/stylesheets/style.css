@@ -1,6 +1,7 @@
 body{
 	background-color:rgba(253,253,253,1);
 	width:100vw;
+	overflow-x: hidden; 
 }
 .row, .col-md-3, .col-md-7, .col-md-2{
 	margin:0;
