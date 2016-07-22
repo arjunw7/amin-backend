@@ -68,7 +68,7 @@
 						<div class="col-md-5 col-sm-5 col-xs-5">Payment Id</div>
 					</div>
 					<div class="historyDetails row" ng-repeat="booking in allBookings | filter: { status: 'paid'} | filter:{userId: current_user}">
-						<div class="col-md-4 col-sm-3 col-xs-3">{{booking.departDate}}</div>
+						<div class="col-md-4 col-sm-4 col-xs-4">{{booking.departDate}}</div>
 <!-- 						<div class="col-md-2 col-sm-3 col-xs-3">{{booking.pickupLocation}}</div>
 						<div class="col-md-2 col-sm-3 col-xs-3">{{booking.dropLocation}}</div> -->
 						<div class="col-md-3 col-sm-3 col-xs-3">{{booking.status}}</div>
