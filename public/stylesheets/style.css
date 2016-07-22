@@ -1,6 +1,6 @@
 body{
 	background-color:rgba(253,253,253,1);
-	overflow-x:hidden;
+	width:100vw;
 }
 .row, .col-md-3, .col-md-7, .col-md-2{
 	margin:0;
@@ -12,7 +12,7 @@ body{
 	text-align: right;
 	font-size:11px;
 	position:fixed;
-	width:100%;
+	width: 100vw;
 	height:20px;
 	z-index:1000;
 }
@@ -149,7 +149,7 @@ body{
 	z-index: 100;
 	background-color: white;
 	position:fixed;
-	width:100%;
+	width: 100vw;
 	margin-top:20px;
 }
 .logo{
