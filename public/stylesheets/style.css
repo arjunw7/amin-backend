@@ -1,6 +1,6 @@
 body{
 	background-color:rgba(253,253,253,1);
-	width:100vw;
+	width:100%;
 	overflow-x: hidden; 
 }
 .row, .col-md-3, .col-md-7, .col-md-2{
@@ -13,7 +13,7 @@ body{
 	text-align: right;
 	font-size:11px;
 	position:fixed;
-	width: 100vw;
+	width: 100%;
 	height:20px;
 	z-index:1000;
 }
@@ -150,7 +150,7 @@ body{
 	z-index: 100;
 	background-color: white;
 	position:fixed;
-	width: 100vw;
+	width: 100%;
 	margin-top:20px;
 }
 .logo{
@@ -1081,4 +1081,29 @@ background-image:url("../images/packages/mysore.jpg")
 		font-size:14px;
 	}
 	/*------about style end------*/
+
+	/*------travel packages style begin------*/
+	.travelPackages{
+		overflow-x:hidden;
+	}
+	.mysore, .ooty, .pondi, .coorg, .goa, .munnar, .kanyakumari, .kodaikanal{
+		height:250px;
+	}
+	.coorgInside, .mysoreInside, .pondiInside, .ootyInside{\
+		height: 250px;
+	}
+	.mysoreName{
+		font-size:56px;
+	}
+	.blueBox{
+		height:250px;
+	}
+	.pondiName{
+		font-size:40px;
+	}
+	.coorgName{
+		position:absolute;
+		font-size:62px;
+	}
+
 }
