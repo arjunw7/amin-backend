@@ -15,6 +15,9 @@
 			<div class="logo">
 				<a href="/#home"><img src="images/logo.png"></a>
 			</div>
+			<div class="listToggle">
+				<img src="../images/menu.png">
+			</div>
 			<div class="menu">
 				<ul>
 					<li class="menuItem"><a href="/#book" style="color:#1e75ba">Book now</a></li>
@@ -44,12 +47,12 @@
 				<div class="col-md-8">
 				<div class="userInfo">
 					<div class="row">
-						<div class="col-md-3">
+						<div class="col-md-3 col-xs-3 col-sm-3">
 							<div class="userImage">
 								<img src="../images/user.png">
 							</div>
 						</div>
-						<div class="col-md-9">
+						<div class="col-md-9 col-xs-9 col-sm-9">
 							<div class="userInfoName">{{ current_user_name }}</div>
 							<div class="userInfoEmail">{{ current_user_email}}</div>
 						</div>
@@ -58,18 +61,18 @@
 				<div class="bookingHistory">
 					<div class="historyHead">Recent Bookings</div>
 					<div class="historyDetailsHead row">
-						<div class="col-md-2">Date</div>
-						<div class="col-md-2">Pickup Location</div>
-						<div class="col-md-2">Drop Location</div>
-						<div class="col-md-2">Status</div>
-						<div class="col-md-2">Payment Id</div>
+						<div class="col-md-2 col-sm-2 col-xs-2">Date</div>
+						<div class="col-md-2 col-sm-3 col-xs-3">Pickup Location</div>
+						<div class="col-md-2 col-sm-3 col-xs-3">Drop Location</div>
+						<div class="col-md-2 col-sm-2 col-xs-2">Status</div>
+						<div class="col-md-2 col-sm-2 col-xs-2">Payment Id</div>
 					</div>
 					<div class="historyDetails row" ng-repeat="booking in allBookings | filter: { status: 'paid'} | filter:{userId: current_user}">
-						<div class="col-md-2">{{booking.departDate}}</div>
-						<div class="col-md-2">{{booking.pickupLocation}}</div>
-						<div class="col-md-2">{{booking.dropLocation}}</div>
-						<div class="col-md-2">{{booking.status}}</div>
-						<div class="col-md-2">{{booking.payment_id}}</div>
+						<div class="col-md-2 col-sm-2 col-xs-2">{{booking.departDate}}</div>
+						<div class="col-md-2 col-sm-3 col-xs-3">{{booking.pickupLocation}}</div>
+						<div class="col-md-2 col-sm-3 col-xs-3">{{booking.dropLocation}}</div>
+						<div class="col-md-2 col-sm-2 col-xs-2">{{booking.status}}</div>
+						<div class="col-md-2 col-sm-2 col-xs-2">{{booking.payment_id}}</div>
 					</div>
 				</div>
 				</div>

@@ -147,7 +147,6 @@ body{
 	height: 80px;
 	box-shadow: 0px 3px 10px grey;
 	z-index: 100;
-	padding:8px 10px;
 	background-color: white;
 	position:fixed;
 	width:100%;
@@ -165,6 +164,19 @@ body{
 	display:inline-block;
 	float:right;
 	padding:20px 0px;
+	margin-right:20px;
+
+}
+.listToggle img{
+	width:80%;
+	margin-left:10%;
+}
+.listToggle{
+	width:50px;
+	background-color:#f3f3f3;
+	display:none;
+	float:right;
+	margin:10px
 }
 
 li{
@@ -321,14 +333,14 @@ ul{
 	color: #1e75ba;
 }
 .mysore, .ooty, .pondi, .coorg, .goa, .munnar, .kanyakumari, .kodaikanal{
-	height:350px;
+	height:300px;
 	background-position:center;
 	background-size:cover;
 	font-family:arial;
 }
 .coorgInside, .mysoreInside, .pondiInside, .ootyInside{
 	width:100%;
-	height: 350px;
+	height: 300px;
 	position: absolute;
 }
 .goa, .munnar, .kanyakumari, .kodaikanal{
@@ -360,7 +372,7 @@ ul{
 }
 .blueBox{
 	background-color: #115c98;
-	height:350px;
+	height:300px;
 	font-size:20px;
 	padding:70px 20px;
 	text-align:center;
@@ -905,4 +917,163 @@ background-image:url("../images/packages/mysore.jpg")
 }
 .historyDetails{
 	padding:5px
+}
+@media(max-width:960px){
+	.menu{
+		display:none;
+	}
+	.slider{
+		padding-top:100px;
+		height:350px;
+	}
+	.listToggle{
+		display: block;
+	}
+	.menu{
+		background-color:white;
+		margin-top:12px;
+		padding:0;
+		margin-right:0px;
+	}
+	.menu li{
+		width:100%;
+		text-align:center;
+		padding:12px;
+		border-bottom:1px solid #dfdfdf;
+	    
+
+	}
+	.menuItem{
+		padding: 5px 15px;
+		font-family:arial;
+		font-weight:bold;
+		color:#767676;
+		font-size:15px
+	}
+	.menuItem a, .menuItem a:hover{
+		color:#767676;
+		font-size:15px;
+		text-decoration:none;
+	}
+	
+	.menu button{
+		font-family:arial;
+		font-weight:bold;
+		color:#767676;
+		font-size:15px;
+		height:15px;
+		background-color:white;
+	}
+
+	#signin{
+		background-color:white;
+		border:none;
+	}
+	#signup{
+		background-color:white;
+		margin-left:0px;
+		border:none;
+	}
+	ul .dropdown{
+		margin-left:20%;
+		margin-top:5%;
+	}
+	.dropdown{
+		position:absolute;
+		background-color:white;
+		z-index:1000;
+		width:50%;
+		margin:0;
+		display: none;
+	}
+	.dropdown li{
+		width:100%;
+	}	
+
+
+	/*------login and signup page style begin------*/
+	.signinMain, .signupMain{
+	  padding: 20px 25px;
+	  padding-top:25px;
+	  min-height:100vh;
+	}
+	.signupDetails, .signinDetails{
+		color:white;
+		font-size:30px;
+		text-align:center;
+	}
+	.signinText, .signuptext{
+	  font-size:28px;
+	  text-align:center;
+	  margin-left:0;
+	  color:white;
+	  padding-top:20px;
+	}
+	.form{
+	  width: 96%;
+	  padding:20px 20px 40px 20px;
+	  margin-left:2%;
+	  margin-top: 2%;
+	}
+	/*------login and signup page style begin------*/
+	.contact input, .contact textarea{
+		width:100%;
+	}
+	/*------packages page style begin------*/
+	.packagesMain{
+		padding:90px 25px;
+	}
+	.packagesMain button{
+		padding:2px 4px;
+		width:100%;
+		margin-top:0px;
+		margin-left:0px;
+		margin-bottom:25px
+	}
+	.sidebanner11, .sidebanner1{
+	display:none;
+	}
+	.sidebanner22, .sidebanner2{
+	display:none;
+	}
+	/*Booking page style begin*/
+	.bookingForm{
+		padding:120px 0px 20px 25px;
+		min-height: 97vh
+	}
+	.profileMain{
+		padding-top:80px
+	}
+	.userInfo img{
+		width:100%;
+	}
+	.userInfo, .bookingHistory{
+		padding-left:20px;
+		padding-top:50px;
+	}
+	.userInfoName{
+		font-size:36px;
+		padding-left:40px;
+		color:grey;
+		font-family:Raleway
+	}
+	.userInfoEmail{
+		font-size:24px;
+		padding-left:40px;	
+		color:grey;
+		font-family:Raleway
+	}
+	.historyHead{
+		font-size:24px;
+		padding-bottom:10px;
+	}
+	.historyDetailsHead{
+		font-size:18px;
+		padding:5px;
+		background-color:#f3f3f3
+	}
+	.historyDetails{
+		padding:5px
+	}
+
 }

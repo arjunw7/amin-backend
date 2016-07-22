@@ -408,7 +408,15 @@ $scope.load = function() {
       angular.element(".dropdownMain").click(function(e){
         e.stopPropagation();
         return false;
-      })   
+      });
+      angular.element(".listToggle").click(function(){
+        angular.element(".menu").toggle();
+      });
+      if(angular.element(window).width() <= 960){
+          angular.element('.sliderItem1 img').attr("src",'images/s1.jpg');
+          angular.element('.sliderItem2 img').attr("src",'images/s2.jpg');
+          angular.element('.sliderItem3 img').attr("src",'images/s3.jpg');
+        }   
  };
  //Calling the load function
  $scope.load();
