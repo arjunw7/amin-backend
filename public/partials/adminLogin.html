@@ -14,21 +14,29 @@
 		</ul>
 	</div>
 </div>
-<div class="adminMain">
+<div class="signinMain">
 	<div>
-		<div class="signinText">Sign into your account</div>
-		<div class="form" align="center">
-	    	<form ng-submit="adminLogin()">
-	        <label>Username</label>
-	        <input type="text" ng-model="user.username" placeholder="username" required>
-	        <label>Password</label>
-	        <input type="password" ng-model="user.password" placeholder="password" required>
-	        <button type="submit" value="#/login"class="signinButton">Sign in</button>
-	        </form>
-	        <a href="/#forgot"><div class="forgotPassword">Forgot password</div></a>
-	        <div class="warning text-warning" style="width:100%">{{error_message}} <img src="../images/cross.png"></div>
-	    	
+		<div class="row">
+			<div class="col-md-6">
+
+			</div>
+			<div class="col-md-6">
+				<div class="signinText">Sign into your account</div>
+		
+				<div class="form" align="center">
+		    	<form ng-submit="adminLogin()">
+		        <label>Username</label>
+		        <input type="text" ng-model="user.username" placeholder="admin" value="admin" disabled required>
+		        <label>Password</label>
+		        <input type="password" ng-model="user.password" placeholder="password" required>
+		        <button type="submit" value="#/login"class="signinButton">Sign in</button>
+		        </form>
+		        <a href="/#forgot"><div class="forgotPassword">Forgot password</div></a>
+		        <div class="warning text-warning" style="width:100%">{{error_message}} <img src="../images/cross.png"></div>
     	</div>
+			</div>
+		</div>
+		
 	</div>
 </div>
 

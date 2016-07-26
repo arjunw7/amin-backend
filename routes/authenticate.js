@@ -73,13 +73,7 @@ module.exports = function(passport){
               });
             },
             function(token, user, done) {
-              var smtpTransport = nodemailer.createTransport('SMTP', {
-                service: 'Gmail',
-                auth: {
-                  user: 'arjunw7@gmail.com',
-                  pass: '9943130589'
-                }
-              });
+              var transporter = nodemailer.createTransport('smtps://arjunw7@gmail.com:9943130589@smtp.gmail.com');
               var mailOptions = {
                 to: user.email,
                 from: 'Sasi Travels',
@@ -89,7 +83,7 @@ module.exports = function(passport){
                   'http://' + req.headers.host + '#/reset/' + token + '\n\n' +
                   'If you did not request this, please ignore this email and your password will remain unchanged.\n'
               };
-              smtpTransport.sendMail(mailOptions, function(err) {
+              transporter.sendMail(mailOptions, function(err) {
                 done(err, 'done');
                 console.log("Mail sent")
               });
@@ -131,13 +125,7 @@ module.exports = function(passport){
               });
             },
             function(user, done) {
-              var smtpTransport = nodemailer.createTransport('SMTP', {
-                service: 'Gmail',
-                auth: {
-                  user: 'arjunw7@gmail.com',
-                  pass: '9943130589'
-                }
-              });
+              var transporter = nodemailer.createTransport('smtps://arjunw7@gmail.com:9943130589@smtp.gmail.com');
               var mailOptions = {
                 to: user.email,
                 from: 'Food Mall VITU',
@@ -145,7 +133,7 @@ module.exports = function(passport){
                 text: 'Hello,\n\n' +
                   'This is a confirmation that the password for your account ' + user.email + ' has just been changed.\n'
               };
-              smtpTransport.sendMail(mailOptions, function(err) {
+              transporter.sendMail(mailOptions, function(err) {
                 console.log('Success! Your password has been changed.');
                 done(err);
               });
@@ -169,14 +157,6 @@ module.exports = function(passport){
     console.log(response);
   }
 });
-
-          // User.findOne({ resetPasswordToken: req.params.token, resetPasswordExpires: { $gt: Date.now() } }, function(err, user) {
-          //   if (!user) {
-          //    console.log('Password reset token is invalid or has expired.');
-          //     return res.redirect('/forgot');
-          //   }
-          //   res.redirect('/reset')
-          // });
         })
     
 
@@ -184,7 +164,7 @@ module.exports = function(passport){
 
     router.get('/facebook/callback',
       passport.authenticate('facebook', { successRedirect: '/#home',
-                                          failureRedirect: '/login'       }));
+                                          failureRedirect: '/#login'       }));
 
         return router;
     }   

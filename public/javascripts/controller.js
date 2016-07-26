@@ -41,7 +41,26 @@ var checkLoggedin = function($q, $timeout, $http, $location, $rootScope){
 
     return deferred.promise;
   };
+var checkAdminLoggedin = function($q, $timeout, $http, $location, $rootScope){
+    // Initialize a new promise
+    var deferred = $q.defer();
 
+    // Make an AJAX call to check if the user is logged in
+    $http.get('auth/isAuthenticated').success(function(user){
+      // Authenticated
+      if (user !== '0' && user.username =='admin' )
+        /*$timeout(deferred.resolve, 0);*/
+        deferred.resolve();
+
+      // Not Authenticated
+      else {
+        deferred.reject();
+        $location.url('/login');
+      }
+    });
+
+    return deferred.promise;
+  };
     var checkLoggedout = function($q, $timeout, $http, $location, $rootScope){
     // Initialize a new promise
     var deferred = $q.defer();
@@ -177,17 +196,14 @@ $routeProvider
   //payment success
   .when('/admin', {
     templateUrl: 'partials/adminLogin.html',
-    controller: 'authController',
-    resolve: {
-     loggedin: checkLoggedin 
-    }
+    controller: 'authController'
   })
   //payment success
   .when('/dashboard', {
     templateUrl: 'partials/dashboard.html',
     controller: 'authController',
     resolve: {
-     loggedin: checkLoggedin 
+     loggedin: checkAdminLoggedin 
     }
   });
 });
@@ -212,6 +228,26 @@ $scope.login = function(){
       $rootScope.current_user_email = data.user.email;
       $rootScope.current_user_name = data.user.fullName;
       $location.path('/');
+    }
+    else{
+      angular.element(".text-warning").css({'display':'block'});
+      angular.element('.text-warning img').click(function(){
+        angular.element('.text-warning').hide();
+      });
+      $scope.error_message = data.message;
+
+    }
+  });
+};
+$scope.adminLogin = function(){
+  $scope.admin = {username:'admin', password: $scope.user.password}
+  $http.post('/auth/login', $scope.admin).success(function(data){
+    if(data.state == 'success'){
+      $rootScope.authenticated = true;
+      $rootScope.current_user = data.user.username;
+      $rootScope.current_user_email = data.user.email;
+      $rootScope.current_user_name = data.user.fullName;
+      $location.path('/dashboard');
     }
     else{
       angular.element(".text-warning").css({'display':'block'});
@@ -251,7 +287,7 @@ $scope.signout = function(){
  };
 
 $scope.forgot = function(){
-  $http.post('/api/forgot', $scope.user);
+  $http.post('/auth/forgot', $scope.user);
   alert('An e-mail has been sent to your email with further instructions');
   $location.path('/login');
 };

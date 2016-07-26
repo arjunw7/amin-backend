@@ -61,24 +61,18 @@ router.route('/confirmOTP')
 
 router.route('/contact')
     .post(function(req, res){
-         var smtpTransport = nodemailer.createTransport('SMTP', {
-                service: 'Gmail',
-                auth: {
-                  user: 'arjunw7@gmail.com',
-                  pass: '9943130589'
-                }
-              });
-              var mailOptions = {
-                to: 'arjunw7@gmail.com',
-                from: req.body.email,
-                subject: 'Website contact form',
-                text: 'Website contact form,\n\n' +
-                    'Name: ' + ' ' + req.body.name +
-                    '\nEmail: ' + ' ' + req.body.email +
-                    '\nContact Number: ' + ' ' + req.body.number +
-                    '\nMessage: ' + ' ' + req.body.message
+         var transporter = nodemailer.createTransport('smtps://arjunw7@gmail.com:9943130589@smtp.gmail.com');
+                var mailOptions = {
+                    from: req.body.email, // sender address
+                    to: 'arjunw7@gmail.com', // list of receivers
+                    subject: 'Website contact form',
+                    text: 'Website contact form,\n\n' +
+                        'Name: ' + ' ' + req.body.name +
+                        '\nEmail: ' + ' ' + req.body.email +
+                        '\nContact Number: ' + ' ' + req.body.number +
+                        '\nMessage: ' + ' ' + req.body.message
               };
-              smtpTransport.sendMail(mailOptions, function(err) {
+              transporter.sendMail(mailOptions, function(err) {
                 console.log('Mail Sent');
               });
     });

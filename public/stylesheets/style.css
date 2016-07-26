@@ -925,7 +925,7 @@ background-image:url("../images/packages/mysore.jpg")
 	}
 	.slider{
 		padding-top:100px;
-		height:450px;
+		height:350px;
 	}
 	.listToggle{
 		display: block;
@@ -1089,7 +1089,7 @@ background-image:url("../images/packages/mysore.jpg")
 	.mysore, .ooty, .pondi, .coorg, .goa, .munnar, .kanyakumari, .kodaikanal{
 		height:250px;
 	}
-	.coorgInside, .mysoreInside, .pondiInside, .ootyInside{\
+	.coorgInside, .mysoreInside, .pondiInside, .ootyInside{
 		height: 250px;
 	}
 	.mysoreName{
