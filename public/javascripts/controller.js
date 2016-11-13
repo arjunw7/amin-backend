@@ -193,6 +193,10 @@ $routeProvider
      loggedin: checkLoggedin 
     }
   })
+  .when('/pricing', {
+    templateUrl: 'partials/pricing.html',
+    controller: 'authController'
+  })
   //payment success
   .when('/admin', {
     templateUrl: 'partials/adminLogin.html',
@@ -344,9 +348,11 @@ $scope.savePayment = function(){
 
 
 $scope.submitContact = function(){
-  $http.post('/api/contact', $scope.contact);
-  alert('Yoyr response has been taken. We\'ll get back to you shoertly');
-  $location.path('/');
+  $http.post('api/contact', $scope.contact).success(function(data){
+      alert('Your response has been taken. We\'ll get back to you shortly');
+      $location.path('/');
+    });
+  
 
 }
 

@@ -919,6 +919,55 @@ background-image:url("../images/packages/mysore.jpg")
 .historyDetails{
 	padding:5px
 }
+.pricingMain{
+		padding:150px 25px;
+}
+.pricingMain table{
+	width:100%;
+}
+.pricingMain input[type="text"]{
+	width:90%;
+	padding: 10px 10px;
+	height:50px;
+	margin:15px 0px;
+	border: 1px solid #b9b9b9;
+	border-radius:2px;
+	outline:none;
+}
+.pricingMain select{
+	width:90%;
+	padding: 2px 5px;
+	height:50px;
+	margin:15px 3px;
+	border: 1px solid #b9b9b9;
+	border-radius:2px;
+	outline:none;
+}
+.pricingMain input[type="button"]{
+	padding: 15px;
+	color:white;
+	border:none;
+	transition:.5s;
+	border-radius:2px;
+	outline:none;
+	background-color:#00bfc1;
+	border:1px solid #00bfc1;
+}
+.pricingMain input[type="button"]:hover{
+	background-color:white;
+	color:#00bfc1;
+}
+.pricingMain label{
+	width:200px;
+	height:30px
+}
+#dvDistance, #dvDuration, #dvCarcost, #dvCost, #dvExtra, #totalCost{
+	display:inline;
+	font-size:32px;
+	font-family: raleway;
+	font-weight:400;
+	color:grey;
+}
 @media(max-width:960px){
 	.menu{
 		display:none;
