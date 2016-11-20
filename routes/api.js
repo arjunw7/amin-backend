@@ -10,6 +10,7 @@ var nodemailer = require('nodemailer');
 var msg91 = require("msg91")("116142AQGxO25kEXN57658c70", "SASITR", 4 );  
 var Insta = require('instamojo-nodejs');
 Insta.setKeys('9658583007a01b23f0ba90c1003641b8', '4f5ff239ed5615148912ce699dfaefc6'); 
+
 var router = express.Router();
 
 
@@ -134,9 +135,9 @@ router.route('/paymentRequest')
         .post(function (req, res){
             var data = new Insta.PaymentData();
             data.purpose = "Sasi Travels";
-            data.amount = 1000; 
+            data.amount = 9; 
             data.buyer_name = req.body.customerName;
-            data.email = req.body.costomerEmail;
+            data.email = req.body.customerEmail;
             data.phone = req.body.customerContact;
             data.send_sms = 'False';
             data.send_email = 'False';
@@ -144,37 +145,45 @@ router.route('/paymentRequest')
             data.redirect_url = 'http://www.sasitravels.in/#/success';
             Insta.createPayment(data, function(error, response) {
               if (error) {
-                console.log()
+                console.log(error)
               } else {
-                // Payment redirection link at response.payment_request.longurl
-
                 console.log(response);
                 res.send(response);
               }
             });
         });
 
+router.route('/processRequest')
+        .post(function (req, res){
+             Booking.findById(req.body.bookingId, function(err, booking){
+                    if(err)
+                        res.send(err);    
+                    booking.payment_id = req.body.paymentId;
+                    booking.save(function(err){
+                        res.send(err);
+                    });
+                });
+        });
+
 router.route('/savePayment')
         .post(function (req, res){
               var payment_id = req.body.payment_id;
               var payment_request_id = req.body.payment_request_id;
-              Booking.findOne({ _id: req.body.booking_id }, function(err, booking) {
+              Booking.findOne({ paymentId: req.body.payment_request_id }, function(err, booking) {
                 if (!booking) {
                   return res.send('Booking not found');
                 }
 
                 booking.status = 'paid';
-                var mobileNo = req.body.customerContact;
+                var mobileNo = booking.customerContact;
                   msg91.send(mobileNo, 'Your taxi booking (' + req.body.booking_id + ') has been confirmed. Kindlu contact MD Asil(9042099195/9894599145) for futhur details.\n\nRegards\nSasi Travels', function(err, response){
                     console.log(err);
                     console.log(response);
                   });
-                booking.payment_request_id = req.body.payment_request_id;
-                booking.payment_id = req.body.payment_id; 
+                booking.payment_successful_id = req.body.payment_id; 
 
                 booking.save(function(err) {
-                  console.log(booking);
-                  
+                  console.log(booking);  
                 });
               });
         });

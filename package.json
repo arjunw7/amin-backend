@@ -16,6 +16,7 @@
     "ejs": "~2.4.1",
     "express": "~4.13.4",
     "express-session": "^1.13.0",
+    "instamojo-nodejs": "0.0.5",
     "mongoose": "^4.5.1",
     "morgan": "~1.7.0",
     "msg91": "0.0.6",

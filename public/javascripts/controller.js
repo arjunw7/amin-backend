@@ -304,10 +304,28 @@ $scope.resetPassword = function(){
 };
 $scope.addBooking = function(current_user){
   $rootScope.otp = Math.floor((Math.random() * 10000) + 1);
-  $rootScope.newBooking = {bookingType: $scope.booking.bookingType, journeyType: $scope.booking.journeyType, pickupLocation: $scope.booking.pickupLocation, dropLocation: $scope.booking.dropLocation,  departDate: $scope.booking.departDate, returnDate: $scope.booking.returnDate, departTime: $scope.booking.departTime, returnTime: $scope.booking.returnTime, passengers: $scope.booking.passengers, carType: $scope.booking.carType, customerName: $scope.booking.customerName, customerEmail: $scope.booking.customerEmail, customerContact: $scope.booking.customerContact, customerAddress: $scope.booking.customerAddress, userId: $rootScope.current_user, otp: $rootScope.otp };
+  $rootScope.newBooking = {
+    bookingType: $scope.booking.bookingType, 
+    journeyType: $scope.booking.journeyType, 
+    pickupLocation: $scope.booking.pickupLocation, 
+    dropLocation: $scope.booking.dropLocation,  
+    departDate: $scope.booking.departDate, 
+    returnDate: $scope.booking.returnDate, 
+    departTime: $scope.booking.departTime, 
+    returnTime: $scope.booking.returnTime, 
+    passengers: $scope.booking.passengers, 
+    carType: $scope.booking.carType, 
+    customerName: $scope.booking.customerName, 
+    customerEmail: $scope.booking.customerEmail, 
+    customerContact: $scope.booking.customerContact, 
+    customerAddress: $scope.booking.customerAddress, 
+    userId: $rootScope.current_user, 
+    otp: $rootScope.otp,
+    bookingId: '-' 
+  };
   $http.post('api/booking', $scope.newBooking).success(function(data){
     console.log(data);
-    $rootScope.booking_id = data._id;
+    $rootScope.newBooking.bookingId = data._id;
     $rootScope.customerContact = data.customerContact;
    angular.element(".otp").css({'display': 'block'});
    angular.element(".book-form :input").prop("disabled", true);
@@ -319,9 +337,18 @@ $scope.addBooking = function(current_user){
   $scope.verifyOTP = function(){
   if($scope.enteredOTP==$rootScope.otp){
     console.log("OTP verified");
+    console.log($rootScope.newBooking);
     $http.post('api/paymentRequest', $rootScope.newBooking).success(function(data){
       console.log(data);
       $scope.link = data.payment_request.longurl;
+      $scope.paymentDetails = {
+        paymentId: data.payment_request.id,
+        bookingId: $rootScope.newBooking.bookingId
+      };
+      $http.post('api/processRequest', $scope.paymentDetails).success(function(data){
+        console.log("update sucessful");
+      });
+
       $rootScope.payment_request_id = data.payment_request.id;
        angular.element(".OTPform :input").prop("disabled", true);
         angular.element(".payment").css({"display": "block"});
@@ -340,7 +367,7 @@ $scope.allUsers=userService.query();
 
 
 $scope.savePayment = function(){
-  $scope.paymentDetails={payment_id: $routeParams.payment_id, payment_request_id: $routeParams.payment_request_id, booking_id: $rootScope.booking_id, customerContact: $rootScope.customerContact};
+  $scope.paymentDetails={payment_id: $routeParams.payment_id, payment_request_id: $routeParams.payment_request_id, booking_id: $rootScope.booking_id};
   $http.post('api/savePayment', $scope.paymentDetails).success(function(data){
     console.log(data);
   })
