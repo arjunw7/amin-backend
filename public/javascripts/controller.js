@@ -15,6 +15,7 @@ var app = angular.module('sasitravels',['ngRoute', 'ngResource']).run(function($
       $rootScope.current_otp = '';
       $rootScope.booking_id = '';
       $rootScope.payment_request_id = '';
+      $rootScope.payment_id = '';
 });
 
 app.config(function($routeProvider, $locationProvider, $httpProvider){
@@ -361,17 +362,20 @@ $scope.addBooking = function(current_user){
 
 };
 
+$scope.savePayment = function(){
+  $scope.paymentDetails={payment_id: $routeParams.payment_id, payment_request_id: $routeParams.payment_request_id, booking_id: $rootScope.booking_id};
+  $rootScope.payment_request_id = $routeParams.payment_request_id;
+  $rootScope.payment_id = $routeParams.payment_id;
+  $http.post('api/savePayment', $scope.paymentDetails).success(function(data){
+    console.log(data);
+  });
+}
 
 $scope.allBookings= bookingService.query();
 $scope.allUsers=userService.query();
 
 
-$scope.savePayment = function(){
-  $scope.paymentDetails={payment_id: $routeParams.payment_id, payment_request_id: $routeParams.payment_request_id, booking_id: $rootScope.booking_id};
-  $http.post('api/savePayment', $scope.paymentDetails).success(function(data){
-    console.log(data);
-  })
-}
+
 
 
 $scope.submitContact = function(){
@@ -379,7 +383,6 @@ $scope.submitContact = function(){
       alert('Your response has been taken. We\'ll get back to you shortly');
       $location.path('/');
     });
-  
 
 }
 

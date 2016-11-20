@@ -167,16 +167,15 @@ router.route('/processRequest')
 
 router.route('/savePayment')
         .post(function (req, res){
-              var payment_id = req.body.payment_id;
-              var payment_request_id = req.body.payment_request_id;
-              Booking.findOne({ paymentId: req.body.payment_request_id }, function(err, booking) {
+              Booking.findOne({ payment_id: req.body.payment_request_id }, function(err, booking) {
                 if (!booking) {
                   return res.send('Booking not found');
                 }
 
                 booking.status = 'paid';
+                booking.payment_successful_id = req.body.payment_id;
                 var mobileNo = booking.customerContact;
-                  msg91.send(mobileNo, 'Your taxi booking (' + req.body.booking_id + ') has been confirmed. Kindlu contact MD Asil(9042099195/9894599145) for futhur details.\n\nRegards\nSasi Travels', function(err, response){
+                  msg91.send(mobileNo, 'Your taxi booking for ' + booking.dropLocation + ' on '+ booking.departDate +' has been confirmed. Contact MD Asil (9042099195/9894599145) for futhur details.\n\nRegards\nSasi Travels', function(err, response){
                     console.log(err);
                     console.log(response);
                   });
