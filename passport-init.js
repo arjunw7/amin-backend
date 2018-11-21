@@ -1,46 +1,44 @@
-var mongoose = require('mongoose');   
+var mongoose = require('mongoose');
 var User = mongoose.model('User');
-var LocalStrategy   = require('passport-local').Strategy; 
+var LocalStrategy = require('passport-local').Strategy;
 var FacebookStrategy = require('passport-facebook').Strategy;
 var configAuth = require('./facebookAuth')
 var async = require('async');
 var crypto = require('crypto');
 var bCrypt = require('bcrypt-nodejs');
-var nodemailer = require('nodemailer');
-var msg91 = require("msg91")("116142AQGxO25kEXN57658c70", "SASITR", 4 );  
 
-module.exports = function(passport){
+module.exports = function(passport) {
 
     // Passport needs to be able to serialize and deserialize users to support persistent login sessions
     passport.serializeUser(function(user, done) {
-        console.log('serializing user:',user.username);
+        console.log('serializing user:', user.username);
         done(null, user._id);
     });
 
     passport.deserializeUser(function(id, done) {
         User.findById(id, function(err, user) {
-            console.log('deserializing user:',user.username);
+            console.log('deserializing user:', user.username);
             done(err, user);
         });
     });
 
     passport.use('login', new LocalStrategy({
-            passReqToCallback : true
+            passReqToCallback: true
         },
-        function(req, username, password, done) { 
+        function(req, username, password, done) {
             // check in mongo if a user with username exists or not
-            User.findOne({ 'username' :  username }, 
+            User.findOne({ 'username': username },
                 function(err, user) {
                     // In case of any error, return using the done method
                     if (err)
                         return done(err);
                     // Username does not exist, log the error and redirect back
-                    if (!user){
-                        console.log('User Not Found with username '+username);
-                        return done(null, false);                 
+                    if (!user) {
+                        console.log('User Not Found with username ' + username);
+                        return done(null, false);
                     }
                     // User exists but wrong password, log the error 
-                    if (!isValidPassword(user, password)){
+                    if (!isValidPassword(user, password)) {
                         console.log('Invalid Password');
                         return done(null, false); // redirect back to login page
                     }
@@ -53,20 +51,20 @@ module.exports = function(passport){
     ));
 
     passport.use('signup', new LocalStrategy({
-            passReqToCallback : true // allows us to pass back the entire request to the callback
+            passReqToCallback: true // allows us to pass back the entire request to the callback
         },
         function(req, username, password, done) {
 
             // find a user in mongo with provided username
-            User.findOne({ 'username' :  username }, function(err, user) {
+            User.findOne({ 'username': username }, function(err, user) {
                 // In case of any error, return using the done method
-                if (err){
-                    console.log('Error in SignUp: '+err);
+                if (err) {
+                    console.log('Error in SignUp: ' + err);
                     return done(err);
                 }
                 // already exists
                 if (user) {
-                    console.log('User already exists with username: '+username);
+                    console.log('User already exists with username: ' + username);
                     return done(null, false);
                 } else {
                     // if there is no user, create the user
@@ -81,72 +79,22 @@ module.exports = function(passport){
 
                     // save the user
                     newUser.save(function(err) {
-                        if (err){
-                            console.log('Error in Saving user: '+err);  
-                            throw err;  
+                        if (err) {
+                            console.log('Error in Saving user: ' + err);
+                            throw err;
                         }
-                        console.log(newUser.username + ' Registration succesful');    
+                        console.log(newUser.username + ' Registration succesful');
                         return done(null, newUser);
                     });
-                      var mobileNo = req.body.contact;
-                      msg91.send(mobileNo, "Dear Customer, Thank you for registering on Sasi Travels. Claim your 10% inaugral discount on your first taxi booking by using discount code SASI10.", function(err, response){
-                        console.log(err);
-                        console.log(response);
-                      });
-
                 }
             });
-        })
-    );
+        }));
 
-    passport.use(new FacebookStrategy({
-        clientID: configAuth.facebookAuth.clientID,
-        clientSecret: configAuth.facebookAuth.clientSecret,
-        callbackURL: configAuth.facebookAuth.callbackURL,
-        profileFields: ["emails", "displayName"]
-      },
-      function(accessToken, refreshToken, profile, done) {
-        User.findOne({ 'username' :  profile.id }, function(err, user) {
-            // In case of any error, return using the done method
-            if (err){
-                console.log('Error in SignUp: '+err);
-                return done(err);
-            }
-            // already exists
-            if (user) {
-                return done(null, user);
-
-            } else {
-                // if there is no user, create the user
-                var newUser = new User();
-
-                // set the user's local credentials
-                newUser.fullName = profile.displayName;
-                newUser.contact = ' ';
-                newUser.email = profile.emails[0].value;
-                newUser.username = profile.id;
-                newUser.token = accessToken;
-                newUser.password = ' ';
-
-                // save the user
-                newUser.save(function(err) {
-                    if (err){
-                        console.log('Error in Saving user: '+err);  
-                        throw err;  
-                    }
-                    console.log(newUser.username + ' Registration succesful');    
-                    return done(null, newUser);
-                });
-            }
-        });
-      }
-    ));
-    
-    var isValidPassword = function(user, password){
+    var isValidPassword = function(user, password) {
         return bCrypt.compareSync(password, user.password);
     };
     // Generates hash using bCrypt
-    var createHash = function(password){
+    var createHash = function(password) {
         return bCrypt.hashSync(password, bCrypt.genSaltSync(10), null);
     };
 
