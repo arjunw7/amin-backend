@@ -1,26 +1,5 @@
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
-var bookingSchema = new mongoose.Schema({
-    bookingType: String,
-    journeyType: String,
-    pickupLocation: String,
-    dropLocation: String,
-    departDate: String,
-    returnDate: String,
-    departTime: String,
-    returnTime: String,
-    passengers: String,
-    carType: String,
-    customerName: String,
-    customerEmail: String,
-    customerContact: String,
-    customerAddress: String,
-    userId: String,
-    status: {type: String, default: 'unpaid'},
-    payment_id: {type: String, default: '-'},
-    payment_successful_id: {type: String, default: '-'},
-    otp: String
-});
 
 var userSchema = new mongoose.Schema({
     fullName: String,
@@ -34,4 +13,3 @@ var userSchema = new mongoose.Schema({
 });
 
 mongoose.model('User', userSchema);
-mongoose.model('Booking', bookingSchema);
